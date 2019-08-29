@@ -81,31 +81,34 @@
                 "options": {
                     "type": "object",
                     "properties": {
-                        "referrerpolicy": {
-                            "type": "string"
-                        },
                         "crossorigin": {
-                            "type": "string"
-                        },
-                        "integrity": {
                             "type": "string"
                         },
                         "pathname": {
                             "type": "string"
                         },
-                        "nomodule": {
+                        "disabled": {
                             "type": "boolean"
+                        },
+                        "hreflang": {
+                            "type": "string"
                         },
                         "prefix": {
                             "type": "boolean"
                         },
-                        "async": {
-                            "type": "boolean"
+                        "title": {
+                            "type": "string"
                         },
-                        "defer": {
-                            "type": "boolean"
+                        "media": {
+                            "type": "string"
                         },
                         "type": {
+                            "type": "string"
+                        },
+                        "rel": {
+                            "type": "string"
+                        },
+                        "as": {
                             "type": "string"
                         }
                     },
