@@ -1,0 +1,119 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "pattern": "^[a-zA-Z0-9_-]*$"
+        },
+        "version": {
+            "type": "string",
+            "minLength": 5,
+            "pattern": "[0-9]+.[0-9]+.[0-9]+"
+        },
+        "organisation": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "pattern": "^[a-zA-Z0-9_-]*$"
+        },
+        "server": {
+            "type": "string",
+            "minLength": 7,
+            "pattern": "^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?",
+            "default": ""
+        },
+        "js": {
+            "type": "object",
+            "properties": {
+                "input": {
+                    "type": "string",
+                    "format": "uri-reference",
+                    "default": ""
+                },
+                "options": {
+                    "type": "object",
+                    "properties": {
+                        "referrerpolicy": {
+                            "type": "string"
+                        },
+                        "crossorigin": {
+                            "type": "string"
+                        },
+                        "integrity": {
+                            "type": "string"
+                        },
+                        "pathname": {
+                            "type": "string"
+                        },
+                        "nomodule": {
+                            "type": "boolean"
+                        },
+                        "prefix": {
+                            "type": "boolean"
+                        },
+                        "async": {
+                            "type": "boolean"
+                        },
+                        "defer": {
+                            "type": "boolean"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    },
+                    "default": {}
+                }
+            },
+            "default": {}
+        },
+        "css": {
+            "type": "object",
+            "properties": {
+                "input": {
+                    "type": "string",
+                    "format": "uri-reference",
+                    "default": ""
+                },
+                "options": {
+                    "type": "object",
+                    "properties": {
+                        "referrerpolicy": {
+                            "type": "string"
+                        },
+                        "crossorigin": {
+                            "type": "string"
+                        },
+                        "integrity": {
+                            "type": "string"
+                        },
+                        "pathname": {
+                            "type": "string"
+                        },
+                        "nomodule": {
+                            "type": "boolean"
+                        },
+                        "prefix": {
+                            "type": "boolean"
+                        },
+                        "async": {
+                            "type": "boolean"
+                        },
+                        "defer": {
+                            "type": "boolean"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    },
+                    "default": {}
+                }
+            },
+            "default": {}
+        }
+    },
+    "required": ["name", "version", "organisation", "server"]
+}
