@@ -107,3 +107,47 @@ test('minimum viable', t => {
     });
     t.end();
 });
+
+test('js and css fields', t => {
+    const result = assets({
+        organisation: 'my-org',
+        name: 'my-app',
+        version: '1.0.0',
+        server: 'http://localhost:4001',
+        js: {
+            input: './assets/scripts.js',
+            options: {
+                async: true,
+                defer: true,
+            },
+        },
+        css: {
+            input: './assets/styles.css',
+            options: {
+                crossorigin: 'etc etc',
+            },
+        },
+    });
+
+    t.equal(result.error, false);
+    t.same(result.value, {
+        organisation: 'my-org',
+        name: 'my-app',
+        version: '1.0.0',
+        server: 'http://localhost:4001',
+        js: {
+            input: './assets/scripts.js',
+            options: {
+                async: true,
+                defer: true,
+            },
+        },
+        css: {
+            input: './assets/styles.css',
+            options: {
+                crossorigin: 'etc etc',
+            },
+        },
+    });
+    t.end();
+});
