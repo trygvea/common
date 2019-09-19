@@ -1,5 +1,5 @@
 {
-    "name": "common",
+    "name": "@asset-pipe/common",
     "version": "4.0.0-alpha.1",
     "description": "",
     "main": "index.js",
