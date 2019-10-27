@@ -117,9 +117,12 @@
             "default": {}
         },
         "import-map": {
-            "type": "string",
-            "minLength": 7,
-            "pattern": "^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?"
+            "type": "array",
+            "items": {
+                "type": "string",
+                "minLength": 7,
+                "pattern": "^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?"
+            }
         }
     },
     "required": ["name", "version", "organisation", "server"]

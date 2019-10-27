@@ -152,7 +152,7 @@ test('js and css fields', t => {
     t.end();
 });
 
-test('import-map field invalid', t => {
+test('import-map field invalid type', t => {
     const result = assets({
         organisation: 'my-org',
         name: 'my-app',
@@ -163,7 +163,25 @@ test('import-map field invalid', t => {
 
     t.equal(
         result.error[0].message,
-        'should match pattern "^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?"'
+        'should be array',
+        'invalid import map type errors'
+    );
+    t.end();
+});
+
+test('import-map field invalid array entry', t => {
+    const result = assets({
+        organisation: 'my-org',
+        name: 'my-app',
+        version: '1.0.0',
+        server: 'http://localhost:4001',
+        'import-map': ['invalid']
+    });
+
+    t.equal(
+        result.error[0].message,
+        'should match pattern "^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?"',
+        'invalid import map array entry errors'
     );
     t.end();
 });
@@ -174,24 +192,60 @@ test('import-map field valid', t => {
         name: 'my-app',
         version: '1.0.0',
         server: 'http://localhost:4001',
-        'import-map': 'http://localhost:4001/finn/map/buzz/v1'
+        'import-map': ['http://localhost:4001/finn/map/buzz/v1']
     });
 
-    t.equal(result.error, false);
-    t.same(result.value, {
+    t.equal(result.error, false, 'no errors in result');
+    t.same(
+        result.value,
+        {
+            organisation: 'my-org',
+            name: 'my-app',
+            version: '1.0.0',
+            server: 'http://localhost:4001',
+            js: {
+                input: '',
+                options: {}
+            },
+            css: {
+                input: '',
+                options: {}
+            },
+            'import-map': ['http://localhost:4001/finn/map/buzz/v1']
+        },
+        'result.value matches output'
+    );
+    t.end();
+});
+
+test('import-map field valid empty array', t => {
+    const result = assets({
         organisation: 'my-org',
         name: 'my-app',
         version: '1.0.0',
         server: 'http://localhost:4001',
-        js: {
-            input: '',
-            options: {}
-        },
-        css: {
-            input: '',
-            options: {}
-        },
-        'import-map': 'http://localhost:4001/finn/map/buzz/v1'
+        'import-map': []
     });
+
+    t.equal(result.error, false, 'result does not return error');
+    t.same(
+        result.value,
+        {
+            organisation: 'my-org',
+            name: 'my-app',
+            version: '1.0.0',
+            server: 'http://localhost:4001',
+            js: {
+                input: '',
+                options: {}
+            },
+            css: {
+                input: '',
+                options: {}
+            },
+            'import-map': []
+        },
+        'result.value matches expected object'
+    );
     t.end();
 });
