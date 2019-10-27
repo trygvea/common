@@ -116,6 +116,12 @@
                 }
             },
             "default": {}
+        },
+        "import-map": {
+            "type": "string",
+            "minLength": 7,
+            "pattern": "^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?",
+            "default": ""
         }
     },
     "required": ["name", "version", "organisation", "server"]
