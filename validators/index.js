@@ -3,6 +3,14 @@
 const semver = require('semver');
 const npmPkg = require('validate-npm-package-name');
 
+const origin = value => {
+    if (new RegExp('^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?').test(value)) {
+        return value.toLowerCase();
+    }
+    throw new Error('Parameter "origin" is not valid');
+};
+module.exports.origin = origin;
+
 const org = value => {
     if (/^[a-zA-Z0-9_-]+$/.test(value)) {
         return value.toLowerCase();
@@ -50,3 +58,11 @@ const extra = value => {
     return value;
 };
 module.exports.extra = extra;
+
+const semverType = value => {
+    if (value === 'major' || value === 'minor' || value === 'patch') {
+        return value;
+    }
+    throw new Error('Parameter "semverType" is not valid');
+};
+module.exports.semverType = semverType;

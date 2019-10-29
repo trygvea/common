@@ -4,6 +4,45 @@ const tap = require('tap');
 const validators = require('./index');
 
 //
+// .origin()
+//
+
+tap.test('.origin() - valid values - should return value', t => {
+    t.equal(validators.origin('http://origin.com'), 'http://origin.com');
+    t.equal(
+        validators.origin('http://origin.com/one/two'),
+        'http://origin.com/one/two'
+    );
+    t.equal(validators.origin('http://s'), 'http://s');
+    t.equal(validators.origin('https://s'), 'https://s');
+    t.equal(
+        validators.origin('http://localhost:4001'),
+        'http://localhost:4001'
+    );
+    t.equal(
+        validators.origin('http://127.0.0.1:4001'),
+        'http://127.0.0.1:4001'
+    );
+    t.end();
+});
+
+tap.test('.origin() - invalid values - should throw', t => {
+    t.throws(() => {
+        validators.origin('!name');
+    }, new Error('Parameter "origin" is not valid'));
+    t.end();
+});
+
+tap.test(
+    '.origin() - upper case valid value - should convert to lower case value',
+    t => {
+        t.equal(validators.origin('http://some-origin'), 'http://some-origin');
+        t.equal(validators.origin('http://SOME_origin'), 'http://some_origin');
+        t.end();
+    }
+);
+
+//
 // .org()
 //
 
@@ -21,17 +60,6 @@ tap.test('.org() - invalid values - should throw', t => {
     }, new Error('Parameter "org" is not valid'));
     t.end();
 });
-
-tap.test(
-    '.org() - upper case valid value - should convert to lower case value',
-    t => {
-        t.equal(validators.org('SOMEorg'), 'someorg');
-        t.equal(validators.org('some-ORG'), 'some-org');
-        t.equal(validators.org('SOME_ORG'), 'some_org');
-        t.equal(validators.org('123'), '123');
-        t.end();
-    }
-);
 
 tap.test(
     '.org() - upper case valid value - should convert to lower case value',
@@ -182,5 +210,30 @@ tap.test('.extra() - valid values - should return value', t => {
     t.equal(validators.extra('/foo/a9-8_3/index.js'), '/foo/a9-8_3/index.js');
     t.equal(validators.extra('/foo/bar'), '/foo/bar');
     t.equal(validators.extra('index.js'), 'index.js');
+    t.end();
+});
+
+//
+// .semverType()
+//
+
+tap.test('.semverType() - valid values - should return value', t => {
+    t.equal(validators.semverType('major'), 'major');
+    t.equal(validators.semverType('minor'), 'minor');
+    t.equal(validators.semverType('patch'), 'patch');
+    t.end();
+});
+
+tap.test('.semverType() - invalid value - should throw', t => {
+    t.throws(() => {
+        validators.semverType('foo');
+    }, new Error('Parameter "semverType" is not valid'));
+    t.end();
+});
+
+tap.test('.semverType() - invalid value - upper case - should throw', t => {
+    t.throws(() => {
+        validators.semverType('MAJOR');
+    }, new Error('Parameter "semverType" is not valid'));
     t.end();
 });
