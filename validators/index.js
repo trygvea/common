@@ -58,3 +58,11 @@ const extra = value => {
     return value;
 };
 module.exports.extra = extra;
+
+const semverType = value => {
+    if (value === 'major' || value === 'minor' || value === 'patch') {
+        return value;
+    }
+    throw new Error('Parameter "semverType" is not valid');
+};
+module.exports.semverType = semverType;

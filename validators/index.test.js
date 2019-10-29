@@ -212,3 +212,28 @@ tap.test('.extra() - valid values - should return value', t => {
     t.equal(validators.extra('index.js'), 'index.js');
     t.end();
 });
+
+//
+// .semverType()
+//
+
+tap.test('.semverType() - valid values - should return value', t => {
+    t.equal(validators.semverType('major'), 'major');
+    t.equal(validators.semverType('minor'), 'minor');
+    t.equal(validators.semverType('patch'), 'patch');
+    t.end();
+});
+
+tap.test('.semverType() - invalid value - should throw', t => {
+    t.throws(() => {
+        validators.semverType('foo');
+    }, new Error('Parameter "semverType" is not valid'));
+    t.end();
+});
+
+tap.test('.semverType() - invalid value - upper case - should throw', t => {
+    t.throws(() => {
+        validators.semverType('MAJOR');
+    }, new Error('Parameter "semverType" is not valid'));
+    t.end();
+});
