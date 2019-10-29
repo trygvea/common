@@ -4,6 +4,45 @@ const tap = require('tap');
 const validators = require('./index');
 
 //
+// .server()
+//
+
+tap.test('.server() - valid values - should return value', t => {
+    t.equal(validators.server('http://server.com'), 'http://server.com');
+    t.equal(
+        validators.server('http://server.com/one/two'),
+        'http://server.com/one/two'
+    );
+    t.equal(validators.server('http://s'), 'http://s');
+    t.equal(validators.server('https://s'), 'https://s');
+    t.equal(
+        validators.server('http://localhost:4001'),
+        'http://localhost:4001'
+    );
+    t.equal(
+        validators.server('http://127.0.0.1:4001'),
+        'http://127.0.0.1:4001'
+    );
+    t.end();
+});
+
+tap.test('.server() - invalid values - should throw', t => {
+    t.throws(() => {
+        validators.server('!name');
+    }, new Error('Parameter "server" is not valid'));
+    t.end();
+});
+
+tap.test(
+    '.server() - upper case valid value - should convert to lower case value',
+    t => {
+        t.equal(validators.server('http://some-server'), 'http://some-server');
+        t.equal(validators.server('http://SOME_server'), 'http://some_server');
+        t.end();
+    }
+);
+
+//
 // .org()
 //
 
@@ -21,17 +60,6 @@ tap.test('.org() - invalid values - should throw', t => {
     }, new Error('Parameter "org" is not valid'));
     t.end();
 });
-
-tap.test(
-    '.org() - upper case valid value - should convert to lower case value',
-    t => {
-        t.equal(validators.org('SOMEorg'), 'someorg');
-        t.equal(validators.org('some-ORG'), 'some-org');
-        t.equal(validators.org('SOME_ORG'), 'some_org');
-        t.equal(validators.org('123'), '123');
-        t.end();
-    }
-);
 
 tap.test(
     '.org() - upper case valid value - should convert to lower case value',
