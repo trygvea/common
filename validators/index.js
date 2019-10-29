@@ -3,13 +3,13 @@
 const semver = require('semver');
 const npmPkg = require('validate-npm-package-name');
 
-const server = value => {
+const origin = value => {
     if (new RegExp('^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?').test(value)) {
         return value.toLowerCase();
     }
-    throw new Error('Parameter "server" is not valid');
+    throw new Error('Parameter "origin" is not valid');
 };
-module.exports.server = server;
+module.exports.origin = origin;
 
 const org = value => {
     if (/^[a-zA-Z0-9_-]+$/.test(value)) {

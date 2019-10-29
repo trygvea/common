@@ -4,40 +4,40 @@ const tap = require('tap');
 const validators = require('./index');
 
 //
-// .server()
+// .origin()
 //
 
-tap.test('.server() - valid values - should return value', t => {
-    t.equal(validators.server('http://server.com'), 'http://server.com');
+tap.test('.origin() - valid values - should return value', t => {
+    t.equal(validators.origin('http://origin.com'), 'http://origin.com');
     t.equal(
-        validators.server('http://server.com/one/two'),
-        'http://server.com/one/two'
+        validators.origin('http://origin.com/one/two'),
+        'http://origin.com/one/two'
     );
-    t.equal(validators.server('http://s'), 'http://s');
-    t.equal(validators.server('https://s'), 'https://s');
+    t.equal(validators.origin('http://s'), 'http://s');
+    t.equal(validators.origin('https://s'), 'https://s');
     t.equal(
-        validators.server('http://localhost:4001'),
+        validators.origin('http://localhost:4001'),
         'http://localhost:4001'
     );
     t.equal(
-        validators.server('http://127.0.0.1:4001'),
+        validators.origin('http://127.0.0.1:4001'),
         'http://127.0.0.1:4001'
     );
     t.end();
 });
 
-tap.test('.server() - invalid values - should throw', t => {
+tap.test('.origin() - invalid values - should throw', t => {
     t.throws(() => {
-        validators.server('!name');
-    }, new Error('Parameter "server" is not valid'));
+        validators.origin('!name');
+    }, new Error('Parameter "origin" is not valid'));
     t.end();
 });
 
 tap.test(
-    '.server() - upper case valid value - should convert to lower case value',
+    '.origin() - upper case valid value - should convert to lower case value',
     t => {
-        t.equal(validators.server('http://some-server'), 'http://some-server');
-        t.equal(validators.server('http://SOME_server'), 'http://some_server');
+        t.equal(validators.origin('http://some-origin'), 'http://some-origin');
+        t.equal(validators.origin('http://SOME_origin'), 'http://some_origin');
         t.end();
     }
 );
