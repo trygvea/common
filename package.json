@@ -18,7 +18,9 @@
     },
     "homepage": "https://github.com/asset-pipe/common#readme",
     "dependencies": {
-        "ajv": "^6.10.2"
+        "ajv": "^6.10.2",
+        "semver": "^6.3.0",
+        "validate-npm-package-name": "^3.0.0"
     },
     "devDependencies": {
         "tap": "^14.6.1"
