@@ -1,4 +1,4 @@
-# Eik Commona
+# Eik Commons
 
 This package contains common utilities and schemas
 
