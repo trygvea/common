@@ -1,22 +1,25 @@
 {
-    "name": "@asset-pipe/common",
-    "version": "4.0.0-alpha.4",
+    "name": "@eik/common",
+    "version": "1.0.0-alpha.1",
     "description": "",
-    "main": "index.js",
+    "main": "lib/index.js",
+    "files": [
+        "lib"
+    ],
     "scripts": {
         "test": "tap"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/asset-pipe/common.git"
+        "url": "git+https://github.com/eik-lib/common.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/asset-pipe/common/issues"
+        "url": "https://github.com/eik-lib/common/issues"
     },
-    "homepage": "https://github.com/asset-pipe/common#readme",
+    "homepage": "https://github.com/eik-lib/common#readme",
     "dependencies": {
         "ajv": "^6.10.2",
         "semver": "^6.3.0",

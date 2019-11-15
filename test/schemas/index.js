@@ -1,5 +1,5 @@
 const { test } = require('tap');
-const { assets } = require('./');
+const { assets } = require('../../lib/schemas/index');
 
 test('validate basic asset manifest', t => {
     const result = assets({

@@ -1,7 +1,7 @@
 'use strict';
 
 const tap = require('tap');
-const validators = require('./index');
+const validators = require('../../lib/validators/index');
 
 //
 // .origin()
