@@ -1,31 +1,39 @@
 {
-    "name": "@eik/common",
-    "version": "1.0.0-alpha.1",
-    "description": "",
-    "main": "lib/index.js",
-    "files": [
-        "lib"
-    ],
-    "scripts": {
-        "test": "tap"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/eik-lib/common.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/eik-lib/common/issues"
-    },
-    "homepage": "https://github.com/eik-lib/common#readme",
-    "dependencies": {
-        "ajv": "^6.10.2",
-        "semver": "^6.3.0",
-        "validate-npm-package-name": "^3.0.0"
-    },
-    "devDependencies": {
-        "tap": "^14.6.1"
-    }
+  "name": "@eik/common",
+  "version": "1.0.0-alpha.1",
+  "description": "",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "tap",
+    "lint:format": "eslint --fix .",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eik-lib/common.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eik-lib/common/issues"
+  },
+  "homepage": "https://github.com/eik-lib/common#readme",
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "semver": "^6.3.0",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.19.1",
+    "tap": "^14.6.1"
+  }
 }
