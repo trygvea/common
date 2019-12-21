@@ -2,7 +2,7 @@
 
 const { Readable } = require('stream');
 const { test } = require('tap');
-const ReadFile = require('../lib/read-file');
+const ReadFile = require('../../lib/classes/read-file');
 
 test('ReadFile() - Object type', (t) => {
     const obj = new ReadFile();
@@ -12,12 +12,19 @@ test('ReadFile() - Object type', (t) => {
 
 test('ReadFile() - Default property values', (t) => {
     const obj = new ReadFile();
+    t.equal(obj.mimeType, '', '.mimeType should be empty String');
     t.equal(obj.stream, undefined, '.stream should be "undefined"');
     t.equal(obj.etag, '', '.etag should be empty String');
     t.end();
 });
 
-test('ReadFile() - Set a value on the etag argument on the constructor', (t) => {
+test('ReadFile() - Set a value on the "mimeType" argument on the constructor', (t) => {
+    const obj = new ReadFile({ mimeType: 'foo' });
+    t.equal(obj.mimeType, 'foo', '.mimeType should be value set on constructor');
+    t.end();
+});
+
+test('ReadFile() - Set a value on the "etag" argument on the constructor', (t) => {
     const obj = new ReadFile({ etag: 'foo' });
     t.equal(obj.etag, 'foo', '.etag should be value set on constructor');
     t.end();
