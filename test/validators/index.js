@@ -184,6 +184,7 @@ tap.test('.name() - invalid value - semver latest - should throw', t => {
 tap.test('.type() - valid values - should return value', t => {
     t.equal(validators.type('pkg'), 'pkg');
     t.equal(validators.type('map'), 'map');
+    t.equal(validators.type('npm'), 'npm');
     t.end();
 });
 
