@@ -1,6 +1,6 @@
 {
   "name": "@eik/common",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "Common utilities for Eik modules",
   "main": "lib/index.js",
   "files": [
