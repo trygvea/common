@@ -1,19 +1,14 @@
 const { test } = require('tap');
-const { assets } = require('../../lib/schemas/index');
+const { validate } = require('../../lib/schemas/index');
 
-test('validate basic asset manifest', t => {
-    const result = assets({
-        organisation: 'my-org',
+test('validate basic eik JSON file', t => {
+    const result = validate.eikJSON({
         name: 'my-app-name',
-        major: '1',
+        version: '1.0.0',
         server: 'http://localhost:4001',
-        js: {
-            input: './assets/scripts.js',
-            options: { async: true, defer: true },
-        },
-        css: {
-            input: './assets/styles.css',
-            options: {},
+        files: {
+            'index.js': './assets/scripts.js',
+            'index.css': './assets/styles.css',
         },
     });
     t.equal(result.error, false);
@@ -21,206 +16,122 @@ test('validate basic asset manifest', t => {
 });
 
 test('validate asset manifest - all props invalid', t => {
-    const result = assets({
-        organisation: '',
+    const result = validate.eikJSON({
         name: '',
-        server: '',
     });
 
-    t.equal(result.error[0].dataPath, '.name');
-    t.equal(result.error[0].message, 'should NOT be shorter than 2 characters');
+    t.same(result.value, { name: '' });
+    t.equal(result.error[0].message, `should have required property 'server'`);
     t.end();
 });
 
-test('validate asset manifest - all props invalid except name', t => {
-    const result = assets({
-        organisation: '',
-        name: 'my-app',
-        server: '',
-    });
-
-    t.equal(result.error[0].dataPath, '.organisation');
-    t.equal(result.error[0].message, 'should NOT be shorter than 2 characters');
+test('validate name: empty string', t => {
+    const result = validate.name('');
+    t.equal(result.value, '');
+    t.equal(result.error.length, 1);
     t.end();
 });
 
-test('validate asset manifest - invalid server - empty string', t => {
-    const result = assets({
-        organisation: 'my-org',
-        name: 'my-app',
-        server: '',
-    });
-
-    t.equal(result.error[0].dataPath, '.server');
-    t.equal(result.error[0].message, 'should NOT be shorter than 7 characters');
-    t.end();
-});
-
-test('validate asset manifest - invalid server - invalid string format', t => {
-    const result = assets({
-        organisation: 'my-org',
-        name: 'my-app',
-        server: 'asdasdasdasd',
-    });
-
-    t.equal(result.error[0].dataPath, '.server');
-    t.equal(
-        result.error[0].message,
-        'should match pattern "^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?"',
-    );
-    t.end();
-});
-
-test('minimum viable', t => {
-    const result = assets({
-        organisation: 'my-org',
-        name: 'my-app',
-        server: 'http://localhost:4001',
-    });
-
+test('validate name: valid', t => {
+    const result = validate.name('@finn-no/my-app');
+    t.equal(result.value, '@finn-no/my-app');
     t.equal(result.error, false);
-    t.same(result.value, {
-        organisation: 'my-org',
-        name: 'my-app',
-        server: 'http://localhost:4001',
-        js: { input: '', options: {} },
-        css: { input: '', options: {} },
-    });
     t.end();
 });
 
-test('js and css fields', t => {
-    const result = assets({
-        organisation: 'my-org',
-        name: 'my-app',
-        major: '1',
-        server: 'http://localhost:4001',
-        js: {
-            input: './assets/scripts.js',
-            options: {
-                async: true,
-                defer: true,
-            },
-        },
-        css: {
-            input: './assets/styles.css',
-            options: {
-                crossorigin: 'etc etc',
-            },
-        },
-    });
+test('validate name: invalid by validate-npm-package-name module', t => {
+    const result = validate.name('@finn-no/my-app~');
+    t.equal(result.value, '@finn-no/my-app~');
+    t.equal(result.error.length, 1);
+    t.end();
+});
 
+test('validate version: empty string', t => {
+    const result = validate.version('');
+    t.equal(result.value, '');
+    t.equal(result.error.length, 1);
+    t.end();
+});
+
+test('validate version: valid', t => {
+    const result = validate.version('1.0.0');
+    t.equal(result.value, '1.0.0');
     t.equal(result.error, false);
-    t.same(result.value, {
-        organisation: 'my-org',
-        name: 'my-app',
-        major: '1',
-        server: 'http://localhost:4001',
-        js: {
-            input: './assets/scripts.js',
-            options: {
-                async: true,
-                defer: true,
-            },
-        },
-        css: {
-            input: './assets/styles.css',
-            options: {
-                crossorigin: 'etc etc',
-            },
-        },
-    });
     t.end();
 });
 
-test('import-map field invalid type', t => {
-    const result = assets({
-        organisation: 'my-org',
-        name: 'my-app',
-        server: 'http://localhost:4001',
-        'import-map': 'invalid',
-    });
-
-    t.equal(
-        result.error[0].message,
-        'should be array',
-        'invalid import map type errors',
-    );
+test('validate version: invalid by node-semver module', t => {
+    const result = validate.version('1.0');
+    t.equal(result.value, '1.0');
+    t.equal(result.error.length, 1);
     t.end();
 });
 
-test('import-map field invalid array entry', t => {
-    const result = assets({
-        organisation: 'my-org',
-        name: 'my-app',
-        server: 'http://localhost:4001',
-        'import-map': ['invalid'],
-    });
-
-    t.equal(
-        result.error[0].message,
-        'should match pattern "^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?"',
-        'invalid import map array entry errors',
-    );
+test('validate server: valid', t => {
+    const result = validate.server('http://localhost:4000');
+    t.equal(result.value, 'http://localhost:4000');
+    t.equal(result.error, false);
     t.end();
 });
 
-test('import-map field valid', t => {
-    const result = assets({
-        organisation: 'my-org',
-        name: 'my-app',
-        server: 'http://localhost:4001',
-        'import-map': ['http://localhost:4001/finn/map/buzz/v1'],
-    });
-
-    t.equal(result.error, false, 'no errors in result');
-    t.same(
-        result.value,
-        {
-            organisation: 'my-org',
-            name: 'my-app',
-            server: 'http://localhost:4001',
-            js: {
-                input: '',
-                options: {},
-            },
-            css: {
-                input: '',
-                options: {},
-            },
-            'import-map': ['http://localhost:4001/finn/map/buzz/v1'],
-        },
-        'result.value matches output',
-    );
+test('validate server: invalid', t => {
+    const result = validate.server('localhost');
+    t.equal(result.value, 'localhost');
+    t.equal(result.error.length, 1);
     t.end();
 });
 
-test('import-map field valid empty array', t => {
-    const result = assets({
-        organisation: 'my-org',
-        name: 'my-app',
-        server: 'http://localhost:4001',
-        'import-map': [],
-    });
+test('validate files: valid', t => {
+    const result = validate.files({'index.js': '/path/to/file.js'});
+    t.same(result.value, {'index.js': '/path/to/file.js'});
+    t.equal(result.error, false);
+    t.end();
+});
 
-    t.equal(result.error, false, 'result does not return error');
-    t.same(
-        result.value,
-        {
-            organisation: 'my-org',
-            name: 'my-app',
-            server: 'http://localhost:4001',
-            js: {
-                input: '',
-                options: {},
-            },
-            css: {
-                input: '',
-                options: {},
-            },
-            'import-map': [],
-        },
-        'result.value matches expected object',
-    );
+test('validate files: invalid', t => {
+    const result = validate.files({'asd': 1});
+    t.same(result.value, {'asd': 1});
+    t.equal(result.error.length, 1);
+    t.end();
+});
+
+test('validate files: invalid', t => {
+    const result = validate.files({});
+    t.same(result.value, {});
+    t.equal(result.error.length, 1);
+    t.end();
+});
+
+test('validate importMap: valid string', t => {
+    const result = validate.importMap('http://myimportmap/file.json');
+    t.same(result.value, 'http://myimportmap/file.json');
+    t.equal(result.error, false);
+    t.end();
+});
+
+test('validate importMap: valid array', t => {
+    const result = validate.importMap([
+        'http://myimportmap/file1.json',
+        'http://myimportmap/file2.json'
+    ]);
+    t.same(result.value, [
+        'http://myimportmap/file1.json',
+        'http://myimportmap/file2.json',
+    ]);
+    t.equal(result.error, false);
+    t.end();
+});
+
+test('validate importMap: invalid string', t => {
+    const result = validate.importMap('');
+    t.same(result.value, '');
+    t.equal(result.error.length, 3);
+    t.end();
+});
+
+test('validate importMap: invalid array', t => {
+    const result = validate.importMap([]);
+    t.same(result.value, []);
+    t.equal(result.error.length, 3);
     t.end();
 });
