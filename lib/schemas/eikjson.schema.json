@@ -48,7 +48,8 @@
     "out": {
       "description": "Location of local Eik build directory (defaults to .eik). Used by Eik client.",
       "type": "string",
-      "format": "uri-reference"
+      "format": "uri-reference",
+      "minLength": 1
     }
   },
   "required": ["server", "name", "version", "files"]

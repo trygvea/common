@@ -135,3 +135,17 @@ test('validate importMap: invalid array', t => {
     t.equal(result.error.length, 3);
     t.end();
 });
+
+test('validate out: valid', t => {
+    const result = validate.out('./.eik');
+    t.same(result.value, './.eik');
+    t.equal(result.error, false);
+    t.end();
+});
+
+test('validate out: invalid', t => {
+    const result = validate.out('');
+    t.same(result.value, '');
+    t.equal(result.error.length, 1);
+    t.end();
+});
