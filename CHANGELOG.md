@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/eik-lib/common/compare/v1.0.1...v1.1.0) (2020-09-10)
+
+
+### Features
+
+* add assert functions for schema ([ba3aa28](https://github.com/eik-lib/common/commit/ba3aa28d2450d2ef6ebf58ba716427164f849680))
+
 ## [1.0.1](https://github.com/eik-lib/common/compare/v1.0.0...v1.0.1) (2020-09-10)
 
 
