@@ -23,12 +23,8 @@
       "description": "File mapping definition for the package. Keys represent files or paths to be created on the Eik Server. Values represent paths to local files to be published.",
       "type": "object",
       "minProperties": 1,
-      "propertyNames": {
-        "pattern": "^[\\./a-z_-][\\./a-z0-9_-]*$"
-      },
       "additionalProperties": {
-        "type": "string",
-        "pattern": "^[\\./a-z_-][\\./a-z0-9_-]*$"
+        "type": "string"
       }
     },
     "import-map": {
@@ -40,8 +36,7 @@
           "items": {
             "type": "string",
             "format": "uri"
-          },
-          "minItems": 1
+          }
         }
       ]
     },

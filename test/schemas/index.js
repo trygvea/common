@@ -130,8 +130,8 @@ test('validate importMap: invalid string', t => {
 });
 
 test('validate importMap: invalid array', t => {
-    const result = validate.importMap([]);
-    t.same(result.value, []);
+    const result = validate.importMap(['']);
+    t.same(result.value, ['']);
     t.equal(result.error.length, 3);
     t.end();
 });
