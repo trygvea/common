@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/eik-lib/common/compare/v1.1.0...v1.2.0) (2020-09-14)
+
+
+### Features
+
+* expose validation error ([66585ef](https://github.com/eik-lib/common/commit/66585ef3de7e6e272fcb4ec7ffa8649f2fff0598))
+
 # [1.1.0](https://github.com/eik-lib/common/compare/v1.0.1...v1.1.0) (2020-09-10)
 
 
