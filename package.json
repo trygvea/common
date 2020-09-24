@@ -26,6 +26,8 @@
   "homepage": "https://github.com/eik-lib/common#readme",
   "dependencies": {
     "ajv": "^6.10.2",
+    "glob": "^7.1.6",
+    "node-fetch": "^2.6.1",
     "semver": "^7.0.0",
     "validate-npm-package-name": "^3.0.0"
   },
@@ -41,8 +43,11 @@
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-prettier": "3.1.4",
+    "express": "^4.17.1",
+    "fastify": "^3.4.1",
     "prettier": "2.1.2",
     "semantic-release": "17.1.2",
+    "stoppable": "^1.1.0",
     "tap": "14.10.8"
   }
 }

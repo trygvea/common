@@ -105,3 +105,69 @@ const { error, value } = schemas.validate.out('./.eik');
 
 assert.out('./.eik');
 ```
+
+### helpers
+
+#### localAssets
+
+A function to help development by mounting development routes to an Express.js or Fastify app based on values defined in `eik.json`
+
+```js
+const express = require('express');
+const { helpers } = require('@eik/common');
+const app = express();
+await helpers.localAssets(app);
+```
+
+For an `eik.json` file such as
+
+```json
+{
+    "name": "my-app",
+    "version": "1.0.0",
+    "server": "https://assets.myeikserver.com",
+    "files" :{
+        "esm.js": "./assets/esm.js",
+        "esm.css": "./assets/esm.css",
+        "/": "./assets/**/*.map",
+    }
+}
+```
+
+A number of routes would be mounted into your app.
+
+```
+/pkg/my-app/1.0.0/esm.js
+/pkg/my-app/1.0.0/esm.css
+/pkg/my-app/1.0.0/esm.js.map
+/pkg/my-app/1.0.0/esm.css.map
+```
+
+#### packageURL
+
+This helper function can be used to build URLs for given entries in an `eik.json` files section. 
+
+Given the following `eik.json` file:
+
+```json
+{
+    "name": "my-app",
+    "version": "1.0.0",
+    "server": "https://assets.myeikserver.com",
+    "files" :{
+        "esm.js": "./assets/esm.js",
+        "esm.css": "./assets/esm.css",
+        "/": "./assets/**/*.map",
+    }
+}
+```
+
+and the following call to packageURL
+
+```js
+const { helpers } = require('@eik/common');
+const url = await helpers.packageURL('esm.js');
+```
+
+The URL returned will be `https://assets.myeikserver.com/pkg/my-app/1.0.0/esm.js`
+
