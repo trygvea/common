@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/eik-lib/common/compare/v1.2.0...v1.3.0) (2020-09-25)
+
+
+### Features
+
+* add helpers for development and production ([207708c](https://github.com/eik-lib/common/commit/207708ce68639388ad4cea033c0204417dfc684e))
+
 # [1.2.0](https://github.com/eik-lib/common/compare/v1.1.0...v1.2.0) (2020-09-14)
 
 
