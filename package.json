@@ -48,6 +48,6 @@
     "prettier": "2.2.0",
     "semantic-release": "17.2.3",
     "stoppable": "1.1.0",
-    "tap": "14.10.8"
+    "tap": "14.11.0"
   }
 }
