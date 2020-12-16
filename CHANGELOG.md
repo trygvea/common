@@ -1,3 +1,11 @@
+## [1.3.2](https://github.com/eik-lib/common/compare/v1.3.1...v1.3.2) (2020-12-16)
+
+
+### Bug Fixes
+
+* Added ajv-formats to support uri's ([66e86d0](https://github.com/eik-lib/common/commit/66e86d09d16644ad35e40617b4a5e3b380e587f3))
+* **deps:** update dependency ajv to v7 ([bb61f63](https://github.com/eik-lib/common/commit/bb61f638259a0d379b6a43490e016c08bf6ac04e))
+
 # [1.3.0](https://github.com/eik-lib/common/compare/v1.2.0...v1.3.0) (2020-09-25)
 
 
