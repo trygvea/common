@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/eik-lib/common#readme",
   "dependencies": {
-    "ajv": "^6.10.2",
+    "ajv": "^7.0.0",
+    "ajv-formats": "^1.5.1",
     "glob": "^7.1.6",
     "node-fetch": "^2.6.1",
     "semver": "^7.0.0",
