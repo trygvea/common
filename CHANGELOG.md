@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/eik-lib/common/compare/v1.3.2...v1.3.3) (2020-12-31)
+
+
+### Bug Fixes
+
+* Expose invalid value when throwing validation error ([7f1d0f0](https://github.com/eik-lib/common/commit/7f1d0f02e3df36dcd8984e0b475f9adf55937c46))
+
 ## [1.3.2](https://github.com/eik-lib/common/compare/v1.3.1...v1.3.2) (2020-12-16)
 
 
