@@ -51,3 +51,9 @@ test('server configured explicitly', (t) => {
     t.equal(config.token, 'kumara pie');
     t.end();
 });
+
+test('cwd property', (t) => {
+    const config = new EikConfig({}, null, 'pizza shop');
+    t.equal(config.cwd, 'pizza shop');
+    t.end();
+});
