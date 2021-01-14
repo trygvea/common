@@ -5,7 +5,6 @@
     "files" :{
         "esm.js": "./assets/esm.js",
         "esm.css": "./assets/esm.css",
-        "/": "./assets/**/*.map",
-        "fake": "/dont/exist.js"
+        "/": "./assets/**/*.map"
     }
 }

@@ -57,3 +57,43 @@ test('cwd property', (t) => {
     t.equal(config.cwd, 'pizza shop');
     t.end();
 });
+
+test('pathsAndFiles returns expected contents', async (t) => {
+    const config = new EikConfig(
+        {
+            files: {
+                'bakery road': 'pac*age.json',
+                'cake road': 'renov*.json',
+            },
+        },
+        null,
+        process.cwd(),
+    );
+    const list = await config.pathsAndFiles();
+    t.deepEqual(list, [
+        ['bakery road', 'package.json'],
+        ['cake road', 'renovate.json'],
+    ]);
+    t.end();
+});
+
+test('pathsAndFiles handles invalid globs', async (t) => {
+    t.plan(1);
+    const config = new EikConfig(
+        {
+            files: {
+                'bakery road': 'ch*colate.cookie',
+                'cake road': 'renov*.json',
+            },
+        },
+        null,
+        process.cwd(),
+    );
+    try {
+        await config.pathsAndFiles();
+    } catch (e) {
+        t.equal(e.message, "No files found for path: 'ch*colate.cookie'");
+    }
+
+    t.end();
+});
