@@ -38,7 +38,7 @@ class Server {
 
 test('Setup development routes for express', async t => {
     const server = new Server();
-    await localAssets(server.app, join(__dirname, './eik.json'));
+    await localAssets(server.app, __dirname);
     await server.start();
 
     const res1 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js', `http://localhost:${server.port}`));
@@ -56,7 +56,7 @@ test('Setup development routes for express', async t => {
 
 test('Setup development routes for fastify', async t => {
     const server = fastify();
-    await localAssets(server, join(__dirname, './eik.json'));
+    await localAssets(server, __dirname);
     const address = await server.listen();
 
     const res1 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js', address));
@@ -73,7 +73,7 @@ test('Setup development routes for fastify', async t => {
 });
 
 test('Invalid app instance', async t => {
-    t.rejects(localAssets({}, join(__dirname, './eik.json')));
+    t.rejects(localAssets({}, __dirname));
     t.end();
 });
 
