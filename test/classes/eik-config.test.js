@@ -97,3 +97,22 @@ test('pathsAndFiles handles invalid globs', async (t) => {
 
     t.end();
 });
+
+test('pathsAndFiles does not allow a destination to have multiple sources', async (t) => {
+    t.plan(1);
+    const config = new EikConfig(
+        { files: { 'sweet.json': '*.json' } },
+        null,
+        process.cwd(),
+    );
+    try {
+        await config.pathsAndFiles();
+    } catch (e) {
+        t.equal(
+            e.message,
+            "Cannot specify a single file destination for multiple source files. See 'sweet.json'",
+        );
+    }
+
+    t.end();
+});
