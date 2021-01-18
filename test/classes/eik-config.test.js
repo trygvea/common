@@ -1,4 +1,5 @@
 const { test } = require('tap');
+const { join } = require('path');
 const EikConfig = require('../../lib/classes/eik-config');
 
 test('basic config properties', (t) => {
@@ -113,6 +114,22 @@ test('pathsAndFiles does not allow a destination to have multiple sources', asyn
             "Cannot specify a single file destination for multiple source files. See 'sweet.json'",
         );
     }
+
+    t.end();
+});
+
+test('pathsAndFilesAbsolute returns absolute paths on the file system', async (t) => {
+    t.plan(1);
+    const baseDir = join(__dirname, '..', 'fixtures');
+    const config = new EikConfig(
+        { files: { 'client.js': 'client.js' } },
+        null,
+        baseDir,
+    );
+    const mapping = await config.pathsAndFilesAbsolute();
+    const src = join(baseDir, 'client.js');
+    const dest = join(baseDir, '.eik', 'client.js');
+    t.equal(mapping.get(src), dest);
 
     t.end();
 });
