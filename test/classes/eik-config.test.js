@@ -72,8 +72,8 @@ test('pathsAndFiles returns expected contents', async (t) => {
     );
     const list = await config.pathsAndFiles();
     t.deepEqual(list, [
-        ['bakery road', 'package.json'],
-        ['cake road', 'renovate.json'],
+        ['bakery road/package.json', 'package.json'],
+        ['cake road/renovate.json', 'renovate.json'],
     ]);
     t.end();
 });
