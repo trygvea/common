@@ -64,6 +64,19 @@ test('package.json and eik.json both have eik config', (t) => {
     t.end();
 });
 
+test('name is pulled from package.json if not defined in eik.json', (t) => {
+    const jsonReaderStub = (path) => {
+        if (path.includes('package.json')) return { name: 'big pizza co' };
+        if (path.includes('eik.json')) return { version: 'bigger and better' };
+        return {};
+    };
+    const config = configStore.findInDirectory('pizza dir', jsonReaderStub);
+    t.equal(config.name, 'big pizza co');
+    t.equal(config.version, 'bigger and better');
+    t.equal(config.version, 'bigger and better');
+    t.end();
+});
+
 test('tokens are present', (t) => {
     const config = configStore.findInDirectory('pizza dir', (path) => {
         if (path.includes('.eikrc')) return { tokens: [['bakery', 'muffins']] };
