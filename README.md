@@ -34,7 +34,7 @@ assert.eikJSON({
 });
 ```
 
-Using invididual schema validators
+Using individual schema validators
 
 ##### name
 
