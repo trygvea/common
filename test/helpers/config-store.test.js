@@ -1,9 +1,9 @@
-const { test, expectUncaughtException } = require('tap');
+const { test } = require('tap');
 const configStore = require('../../lib/helpers/config-store');
 
 test('loads from package.json', (t) => {
     const config = configStore.findInDirectory('pizza dir', (path) => {
-        if (path.includes('eik.json') || path.includes('.eikrc')) return;
+        if (path.includes('eik.json') || path.includes('.eikrc')) return null;
         t.match(path, 'pizza dir/package.json');
         return {
             name: 'magarita',
