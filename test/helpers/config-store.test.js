@@ -47,6 +47,7 @@ test('package.json and eik.json not being present', (t) => {
 });
 
 test('package.json and eik.json both have eik config', (t) => {
+    t.plan(1);
     const jsonReaderStub = (path) => {
         if (path.includes('package.json'))
             return { eik: { pizza: 'magarita' } };
