@@ -143,3 +143,19 @@ test('pathsAndFilesAbsolute returns absolute paths on the file system', async (t
 
     t.end();
 });
+
+test('pathsAndFilesAbsolute handles files which are already absolute', async (t) => {
+    t.plan(1);
+    const baseDir = join(__dirname, '..', 'fixtures');
+    const config = new EikConfig(
+        { files: { 'client.js': join(baseDir, '/client.js') } },
+        null,
+        baseDir,
+    );
+    const mapping = await config.pathsAndFilesAbsolute();
+    const src = join(baseDir, 'client.js');
+    const dest = join(baseDir, '.eik', 'client.js');
+    t.equal(mapping.get(src), dest);
+
+    t.end();
+});
