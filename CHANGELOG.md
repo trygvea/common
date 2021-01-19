@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/eik-lib/common/compare/v1.3.3...v1.4.0) (2021-01-19)
+
+
+### Features
+
+* Remove unneeded file ([72c07df](https://github.com/eik-lib/common/commit/72c07dfb3e8673a55535470dd41b7ed09e492b08))
+
 ## [1.3.3](https://github.com/eik-lib/common/compare/v1.3.2...v1.3.3) (2020-12-31)
 
 
