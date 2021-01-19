@@ -7,12 +7,19 @@ test('basic config properties', (t) => {
         name: 'pizza',
         files: 'secret receipe',
         version: 'deep dish',
-        'import-map': 'cheese from italy',
     });
     t.equal(config.name, 'pizza');
     t.equal(config.files, 'secret receipe');
     t.equal(config.version, 'deep dish');
-    t.equal(config.map, 'cheese from italy');
+    t.end();
+});
+
+test('map property', (t) => {
+    let config = new EikConfig({ 'import-map': 'cheese from italy' });
+    t.deepEqual(config.map, ['cheese from italy']);
+
+    config = new EikConfig({ 'import-map': ['gouda', 'mozzarella'] });
+    t.deepEqual(config.map, ['gouda', 'mozzarella']);
     t.end();
 });
 

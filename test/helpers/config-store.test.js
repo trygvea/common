@@ -17,7 +17,7 @@ test('loads from package.json', (t) => {
     t.equal(config.name, 'magarita');
     t.equal(config.version, 'tomato');
     t.equal(config.notIncluded, undefined);
-    t.equal(config.map, 'deep dish');
+    t.deepEqual(config.map, ['deep dish']);
     t.end();
 });
 
