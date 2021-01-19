@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/eik-lib/common/compare/v1.4.0...v1.4.1) (2021-01-19)
+
+
+### Bug Fixes
+
+* Ensure map property for config is always an array ([c0d1860](https://github.com/eik-lib/common/commit/c0d1860fe906fd7902ffcceb76996cfff02861e2))
+
 # [1.4.0](https://github.com/eik-lib/common/compare/v1.3.3...v1.4.0) (2021-01-19)
 
 
