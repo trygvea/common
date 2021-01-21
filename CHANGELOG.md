@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/eik-lib/common/compare/v1.4.1...v1.4.2) (2021-01-21)
+
+
+### Bug Fixes
+
+* remove singletons in packageURL and localAssets ([6e49df0](https://github.com/eik-lib/common/commit/6e49df03afd5294bf8535c95c050a8d28e94f491))
+
 ## [1.4.1](https://github.com/eik-lib/common/compare/v1.4.0...v1.4.1) (2021-01-19)
 
 
