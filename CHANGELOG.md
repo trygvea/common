@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/eik-lib/common/compare/v1.4.2...v1.5.0) (2021-01-25)
+
+
+### Features
+
+* Add config persistence method to configStore ([91b396c](https://github.com/eik-lib/common/commit/91b396c52077d0b7916c65bbfcfbca10428e76f9))
+
 ## [1.4.2](https://github.com/eik-lib/common/compare/v1.4.1...v1.4.2) (2021-01-21)
 
 
