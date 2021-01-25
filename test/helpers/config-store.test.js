@@ -35,6 +35,7 @@ test('loads from eik.json', (t) => {
 });
 
 test('package.json and eik.json not being present', (t) => {
+    t.plan(1);
     try {
         configStore.findInDirectory('pizza dir', () => null);
     } catch (e) {
@@ -89,6 +90,7 @@ test('tokens are present', (t) => {
 });
 
 test('invalid json error', (t) => {
+    t.plan(1);
     const jsonReaderStub = (path) => {
         if (path.includes('.json')) JSON.parse('not json');
         return {};
@@ -103,6 +105,7 @@ test('invalid json error', (t) => {
 });
 
 test('no configuration present', (t) => {
+    t.plan(1);
     try {
         configStore.findInDirectory('pizza dir', () => {});
     } catch (e) {
@@ -115,13 +118,7 @@ test('no configuration present', (t) => {
 });
 
 test('reading without stubbed json', (t) => {
-    try {
-        configStore.findInDirectory(__dirname);
-    } catch (e) {
-        t.equal(
-            e.message,
-            `No package.json or eik.json file found in: '${__dirname}'`,
-        );
-    }
+    const config = configStore.findInDirectory(__dirname);
+    t.equal(config.name, 'my-app');
     t.end();
 });
