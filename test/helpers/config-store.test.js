@@ -1,9 +1,13 @@
 const { test } = require('tap');
 const fs = require('fs').promises;
-const path = require('path');
+const { join } = require('path');
 const os = require('os');
 const configStore = require('../../lib/helpers/config-store');
 const EikConfig = require('../../lib/classes/eik-config');
+
+function mkdirTempDir() {
+    return fs.mkdtemp(join(os.tmpdir(), 'eik-config'));
+}
 
 test('loads from package.json', (t) => {
     const config = configStore.findInDirectory('pizza dir', (path) => {
@@ -152,7 +156,3 @@ test('handles no path being provided', async (t) => {
     }
     t.end();
 });
-
-function mkdirTempDir() {
-    return fs.mkdtemp(path.join(os.tmpdir(), 'eik-config'));
-}
