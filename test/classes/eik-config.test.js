@@ -66,6 +66,13 @@ test('cwd property', (t) => {
     t.end();
 });
 
+test('setting the version', (t) => {
+    const config = new EikConfig({});
+    config.version = 'big cheese';
+    t.equal(config.version, 'big cheese');
+    t.end();
+});
+
 test('pathsAndFiles returns expected contents', async (t) => {
     const config = new EikConfig(
         {
