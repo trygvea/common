@@ -1,5 +1,9 @@
 const { test } = require('tap');
+const fs = require('fs').promises;
+const path = require('path');
+const os = require('os');
 const configStore = require('../../lib/helpers/config-store');
+const EikConfig = require('../../lib/classes/eik-config');
 
 test('loads from package.json', (t) => {
     const config = configStore.findInDirectory('pizza dir', (path) => {
@@ -122,3 +126,33 @@ test('reading without stubbed json', (t) => {
     t.equal(config.name, 'my-app');
     t.end();
 });
+
+test('saves config to disk', async (t) => {
+    const path = await mkdirTempDir();
+    const config = new EikConfig({ out: 'muffins' }, null, path);
+
+    configStore.persistToDisk(config);
+
+    const persistedConfig = configStore.findInDirectory(path);
+    t.equal(persistedConfig.out, 'muffins');
+    t.end();
+});
+
+test('handles no path being provided', async (t) => {
+    t.plan(1);
+    const config = new EikConfig({ out: 'muffins' });
+
+    try {
+        configStore.persistToDisk(config);
+    } catch (e) {
+        t.equal(
+            e.message,
+            'The "path" argument must be of type string. Received undefined',
+        );
+    }
+    t.end();
+});
+
+function mkdirTempDir() {
+    return fs.mkdtemp(path.join(os.tmpdir(), 'eik-config'));
+}
