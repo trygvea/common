@@ -60,6 +60,34 @@ test('assert version: valid', t => {
     t.end();
 });
 
+test('assert type: invalid', t => {
+    t.throws(() => {
+        assert.type('foo');
+    });
+    t.end();
+});
+
+test('assert type: valid - package', t => {
+    t.notThrow(() => {
+        assert.type('package');
+    });
+    t.end();
+});
+
+test('assert type: valid - npm', t => {
+    t.notThrow(() => {
+        assert.type('npm');
+    });
+    t.end();
+});
+
+test('assert type: valid - map', t => {
+    t.notThrow(() => {
+        assert.type('map');
+    });
+    t.end();
+});
+
 test('assert version: invalid by node-semver module', t => {
     t.throws(() => {
         assert.version('1.0');

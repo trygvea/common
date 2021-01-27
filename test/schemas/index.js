@@ -11,6 +11,7 @@ test('validate basic eik JSON file', t => {
             'index.css': './assets/styles.css',
         },
     });
+    t.equal(result.value.type, 'package');
     t.equal(result.error, false);
     t.end();
 });
@@ -20,7 +21,7 @@ test('validate asset manifest - all props invalid', t => {
         name: '',
     });
 
-    t.same(result.value, { name: '' });
+    t.same(result.value, { name: '', type: 'package' });
     t.equal(result.error[0].message, `should have required property 'server'`);
     t.end();
 });
@@ -56,6 +57,32 @@ test('validate version: empty string', t => {
 test('validate version: valid', t => {
     const result = validate.version('1.0.0');
     t.equal(result.value, '1.0.0');
+    t.equal(result.error, false);
+    t.end();
+});
+
+test('validate type: empty string', t => {
+    const result = validate.type('');
+    t.equal(result.value, '');
+    t.equal(result.error.length, 1);
+    t.end();
+});
+
+test('validate type: valid - package', t => {
+    const result = validate.type('package');
+    t.equal(result.value, 'package');
+    t.equal(result.error, false);
+    t.end();
+});
+test('validate type: valid - npm', t => {
+    const result = validate.type('npm');
+    t.equal(result.value, 'npm');
+    t.equal(result.error, false);
+    t.end();
+});
+test('validate type: valid - map', t => {
+    const result = validate.type('map');
+    t.equal(result.value, 'map');
     t.equal(result.error, false);
     t.end();
 });

@@ -19,6 +19,12 @@
       "type": "string",
       "minLength": 1
     },
+    "type": {
+      "description": "The type of the Eik package. Must be one of 'package', 'npm' or 'map'",
+      "type": "string",
+      "enum": ["package", "npm", "map"],
+      "default": "package"
+    },
     "files": {
       "description": "File mapping definition for the package. Keys represent files or paths to be created on the Eik Server. Values represent paths to local files to be published.",
       "type": "object",
