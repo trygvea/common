@@ -55,6 +55,17 @@ const { error, value } = schemas.validate.version('1.0.0');
 
 assert.version('1.0.0');
 ```
+
+##### type
+
+```js
+const { error, value } = schemas.validate.type('package');
+
+// or
+
+assert.type('package');
+```
+
 ##### server
 
 ```js
