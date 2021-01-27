@@ -20,7 +20,7 @@
       "minLength": 1
     },
     "type": {
-      "description": "The type of the Eik package. Must be one of 'package', 'npm' or 'map'",
+      "description": "The type of the Eik package. Must be one of 'package', 'npm' or 'map'. Setting this value changes the URL publish namespace between '/pkg' (default), '/npm' and '/map', use 'npm' when publishing NPM packages. Use 'map' when publishing import maps.",
       "type": "string",
       "enum": ["package", "npm", "map"],
       "default": "package"
