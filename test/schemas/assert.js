@@ -61,9 +61,12 @@ test('assert version: valid', t => {
 });
 
 test('assert type: invalid', t => {
-    t.throws(() => {
+    t.plan(1);
+    try {
         assert.type('foo');
-    });
+    } catch (err) {
+        t.equal(err.message, 'Parameter "type" is not valid: should be equal to one of the allowed values ("package", npm", map")');
+    }
     t.end();
 });
 

@@ -65,6 +65,7 @@ test('validate type: empty string', t => {
     const result = validate.type('');
     t.equal(result.value, '');
     t.equal(result.error.length, 1);
+    t.equal(result.error[0].message, 'should be equal to one of the allowed values');
     t.end();
 });
 
