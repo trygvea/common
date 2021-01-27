@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/eik-lib/common/compare/v1.5.0...v1.6.0) (2021-01-27)
+
+
+### Features
+
+* add "type" field to JSON Schema, validation and asserts ([402ffca](https://github.com/eik-lib/common/commit/402ffcadcd823fdfdd47bf0d4e2c8353795e6fbc))
+
 # [1.5.0](https://github.com/eik-lib/common/compare/v1.4.2...v1.5.0) (2021-01-25)
 
 
