@@ -15,17 +15,19 @@ test('loads from package.json', (t) => {
         t.match(path, 'pizza dir/package.json');
         return {
             name: 'magarita',
-            version: 'tomato',
+            version: '0.0.0',
             notIncluded: 'fish',
             eik: {
-                'import-map': 'deep dish',
+                server: 'http://server',
+                files: { '/': 'pizza' },
+                'import-map': 'http://map',
             },
         };
     });
     t.equal(config.name, 'magarita');
-    t.equal(config.version, 'tomato');
+    t.equal(config.version, '0.0.0');
     t.equal(config.notIncluded, undefined);
-    t.deepEqual(config.map, ['deep dish']);
+    t.deepEqual(config.map, ['http://map']);
     t.end();
 });
 
@@ -36,6 +38,9 @@ test('loads from eik.json', (t) => {
         t.match(path, 'pizza dir/eik.json');
         return {
             name: 'magarita',
+            server: 'http://server',
+            files: { '/': 'pizza' },
+            version: '0.0.0',
         };
     });
     t.equal(config.name, 'magarita');
@@ -76,23 +81,38 @@ test('package.json and eik.json both have eik config', (t) => {
 
 test('name is pulled from package.json if not defined in eik.json', (t) => {
     const jsonReaderStub = (path) => {
-        if (path.includes('package.json')) return { name: 'big pizza co' };
-        if (path.includes('eik.json')) return { version: 'bigger and better' };
+        if (path.includes('package.json'))
+            return {
+                name: 'big pizza co',
+                version: '0.0.0',
+            };
+        if (path.includes('eik.json'))
+            return {
+                server: 'http://server',
+                files: { '/': 'pizza' },
+            };
         return {};
     };
     const config = configStore.findInDirectory('pizza dir', jsonReaderStub);
     t.equal(config.name, 'big pizza co');
-    t.equal(config.version, 'bigger and better');
-    t.equal(config.version, 'bigger and better');
+    t.equal(config.version, '0.0.0');
     t.end();
 });
 
 test('tokens are present', (t) => {
     const config = configStore.findInDirectory('pizza dir', (path) => {
-        if (path.includes('.eikrc')) return { tokens: [['bakery', 'muffins']] };
+        if (path.includes('eik.json'))
+            return {
+                name: 'magarita',
+                server: 'http://server',
+                files: { '/': 'pizza' },
+                version: '0.0.0',
+            };
+        if (path.includes('.eikrc'))
+            return { tokens: [['http://server', 'muffins']] };
         return {};
     });
-    t.equal(config.server, 'bakery');
+    t.equal(config.server, 'http://server');
     t.equal(config.token, 'muffins');
     t.end();
 });
@@ -133,18 +153,34 @@ test('reading without stubbed json', (t) => {
 
 test('saves config to disk', async (t) => {
     const path = await mkdirTempDir();
-    const config = new EikConfig({ out: 'muffins' }, null, path);
+    const config = new EikConfig(
+        {
+            name: 'magarita',
+            server: 'http://server',
+            files: { '/': 'pizza' },
+            version: '0.0.0',
+            out: './biscuits',
+        },
+        null,
+        path,
+    );
 
     configStore.persistToDisk(config);
 
     const persistedConfig = configStore.findInDirectory(path);
-    t.equal(persistedConfig.out, 'muffins');
+    t.equal(persistedConfig.out, './biscuits');
     t.end();
 });
 
 test('handles no path being provided', async (t) => {
     t.plan(1);
-    const config = new EikConfig({ out: 'muffins' });
+    const config = new EikConfig({
+        name: 'magarita',
+        server: 'http://server',
+        files: { '/': 'pizza' },
+        version: '0.0.0',
+        out: 'muffins',
+    });
 
     try {
         configStore.persistToDisk(config);

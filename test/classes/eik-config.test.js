@@ -5,77 +5,156 @@ const EikConfig = require('../../lib/classes/eik-config');
 test('basic config properties', (t) => {
     const config = new EikConfig({
         name: 'pizza',
-        files: 'secret receipe',
-        version: 'deep dish',
+        server: 'http://server',
+        files: { '/': 'pizza' },
+        version: '0.0.0',
     });
     t.equal(config.name, 'pizza');
-    t.equal(config.files, 'secret receipe');
-    t.equal(config.version, 'deep dish');
+    t.same(config.files, { '/': 'pizza' });
+    t.equal(config.version, '0.0.0');
     t.end();
 });
 
 test('map property', (t) => {
-    let config = new EikConfig({ 'import-map': 'cheese from italy' });
-    t.deepEqual(config.map, ['cheese from italy']);
+    let config = new EikConfig({
+        name: 'pizza',
+        server: 'http://server',
+        files: { '/': 'pizza' },
+        version: '0.0.0',
+        'import-map': 'http://map',
+    });
+    t.deepEqual(config.map, ['http://map']);
 
-    config = new EikConfig({ 'import-map': ['gouda', 'mozzarella'] });
-    t.deepEqual(config.map, ['gouda', 'mozzarella']);
+    config = new EikConfig({
+        name: 'pizza',
+        server: 'http://server',
+        files: { '/': 'pizza' },
+        version: '0.0.0',
+        'import-map': ['http://map', 'http://map'],
+    });
+    t.deepEqual(config.map, ['http://map', 'http://map']);
     t.end();
 });
 
 test('out property', (t) => {
-    t.equal(new EikConfig({}).out, '.eik', 'defaults to .eik');
-    t.equal(new EikConfig({ out: 'pizza box' }).out, 'pizza box');
+    t.equal(
+        new EikConfig({
+            name: 'pizza',
+            server: 'http://server',
+            files: { '/': 'pizza' },
+            version: '0.0.0',
+        }).out,
+        '.eik',
+        'defaults to .eik',
+    );
+    t.equal(
+        new EikConfig({
+            name: 'pizza',
+            server: 'http://server',
+            files: { '/': 'pizza' },
+            version: '0.0.0',
+            out: './pizza-box',
+        }).out,
+        './pizza-box',
+    );
     t.end();
 });
 
-test('no token or server configured', (t) => {
-    const config = new EikConfig({}, null);
-    t.same(config.server, null);
+test('no token configured', (t) => {
+    const config = new EikConfig(
+        {
+            name: 'pizza',
+            server: 'http://server',
+            files: { '/': 'pizza' },
+            version: '0.0.0',
+        },
+        null,
+    );
     t.same(config.token, null);
     t.end();
 });
 
 test('single token present', (t) => {
-    const config = new EikConfig({}, [['bakery', 'muffins']]);
-    t.equal(config.server, 'bakery');
+    const config = new EikConfig(
+        {
+            name: 'pizza',
+            server: 'http://server',
+            files: { '/': 'pizza' },
+            version: '0.0.0',
+        },
+        [['http://server', 'muffins']],
+    );
+    t.equal(config.server, 'http://server');
     t.equal(config.token, 'muffins');
     t.end();
 });
 
 test('multiple tokens present', (t) => {
-    const config = new EikConfig({}, [['bakery', 'muffins'], []]);
-    t.equal(config.server, 'bakery');
+    const config = new EikConfig(
+        {
+            name: 'pizza',
+            server: 'http://server',
+            files: { '/': 'pizza' },
+            version: '0.0.0',
+        },
+        [['http://server', 'muffins'], []],
+    );
+    t.equal(config.server, 'http://server');
     t.equal(config.token, 'muffins');
     t.end();
 });
 
 test('server configured explicitly', (t) => {
-    const config = new EikConfig({ server: 'pie shop' }, [
-        ['bakery', 'muffins'],
-        ['pie shop', 'kumara pie'],
-    ]);
-    t.equal(config.server, 'pie shop');
+    const config = new EikConfig(
+        {
+            name: 'pizza',
+            server: 'http://server',
+            files: { '/': 'pizza' },
+            version: '0.0.0',
+        },
+        [
+            ['bakery', 'muffins'],
+            ['http://server', 'kumara pie'],
+        ],
+    );
+    t.equal(config.server, 'http://server');
     t.equal(config.token, 'kumara pie');
     t.end();
 });
 
 test('cwd property', (t) => {
-    const config = new EikConfig({}, null, 'pizza shop');
+    const config = new EikConfig(
+        {
+            name: 'pizza',
+            server: 'http://server',
+            files: { '/': 'pizza' },
+            version: '0.0.0',
+        },
+        null,
+        'pizza shop',
+    );
     t.equal(config.cwd, 'pizza shop');
     t.end();
 });
 
 test('setting the version', (t) => {
-    const config = new EikConfig({});
-    config.version = 'big cheese';
-    t.equal(config.version, 'big cheese');
+    const config = new EikConfig({
+        name: 'pizza',
+        server: 'http://server',
+        files: { '/': 'pizza' },
+        version: '0.0.0',
+    });
+    config.version = '0.0.1';
+    t.equal(config.version, '0.0.1');
     t.end();
 });
 
 test('pathsAndFiles returns expected contents', async (t) => {
     const config = new EikConfig(
         {
+            name: 'pizza',
+            server: 'http://server',
+            version: '0.0.0',
             files: {
                 'bakery road': 'pac*age.json',
                 'cake road': 'renov*.json',
@@ -106,6 +185,9 @@ test('pathsAndFiles handles invalid globs', async (t) => {
     t.plan(1);
     const config = new EikConfig(
         {
+            name: 'pizza',
+            server: 'http://server',
+            version: '0.0.0',
             files: {
                 'bakery road': 'ch*colate.cookie',
                 'cake road': 'renov*.json',
@@ -126,7 +208,12 @@ test('pathsAndFiles handles invalid globs', async (t) => {
 test('pathsAndFiles does not allow a destination to have multiple sources', async (t) => {
     t.plan(1);
     const config = new EikConfig(
-        { files: { 'sweet.json': '*.json' } },
+        {
+            name: 'pizza',
+            server: 'http://server',
+            version: '0.0.0',
+            files: { 'sweet.json': '*.json' },
+        },
         null,
         process.cwd(),
     );
@@ -146,7 +233,12 @@ test('pathsAndFilesAbsolute returns absolute paths on the file system', async (t
     t.plan(1);
     const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
-        { files: { 'client.js': 'client.js' } },
+        {
+            name: 'pizza',
+            server: 'http://server',
+            version: '0.0.0',
+            files: { 'client.js': 'client.js' },
+        },
         null,
         baseDir,
     );
@@ -162,7 +254,12 @@ test('pathsAndFilesAbsolute handles files which are already absolute', async (t)
     t.plan(1);
     const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
-        { files: { 'client.js': join(baseDir, '/client.js') } },
+        {
+            name: 'pizza',
+            server: 'http://server',
+            version: '0.0.0',
+            files: { 'client.js': join(baseDir, '/client.js') },
+        },
         null,
         baseDir,
     );
