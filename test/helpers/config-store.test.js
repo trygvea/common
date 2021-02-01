@@ -9,20 +9,38 @@ function mkdirTempDir() {
     return fs.mkdtemp(join(os.tmpdir(), 'eik-config'));
 }
 
+const mockEikJSON = (data) => ({
+    name: 'magarita',
+    server: 'http://server',
+    files: { '/': 'pizza' },
+    version: '0.0.0',
+    ...data,
+});
+
+const mockPackageJSON = ({
+    name = 'magarita',
+    version = '0.0.0',
+    other = {},
+    eik = {},
+}) => ({
+    name,
+    version,
+    ...other,
+    eik: {
+        server: 'http://server',
+        files: { '/': 'pizza' },
+        ...eik,
+    },
+});
+
 test('loads from package.json', (t) => {
     const config = configStore.findInDirectory('pizza dir', (path) => {
         if (path.includes('eik.json') || path.includes('.eikrc')) return null;
         t.match(path, 'pizza dir/package.json');
-        return {
-            name: 'magarita',
-            version: '0.0.0',
-            notIncluded: 'fish',
-            eik: {
-                server: 'http://server',
-                files: { '/': 'pizza' },
-                'import-map': 'http://map',
-            },
-        };
+        return mockPackageJSON({
+            other: { notIncluded: 'fish' },
+            eik: { 'import-map': 'http://map' },
+        });
     });
     t.equal(config.name, 'magarita');
     t.equal(config.version, '0.0.0');
@@ -36,12 +54,7 @@ test('loads from eik.json', (t) => {
         if (path.includes('package.json') || path.includes('.eikrc'))
             return null;
         t.match(path, 'pizza dir/eik.json');
-        return {
-            name: 'magarita',
-            server: 'http://server',
-            files: { '/': 'pizza' },
-            version: '0.0.0',
-        };
+        return mockEikJSON();
     });
     t.equal(config.name, 'magarita');
     t.end();
@@ -102,12 +115,7 @@ test('name is pulled from package.json if not defined in eik.json', (t) => {
 test('tokens are present', (t) => {
     const config = configStore.findInDirectory('pizza dir', (path) => {
         if (path.includes('eik.json'))
-            return {
-                name: 'magarita',
-                server: 'http://server',
-                files: { '/': 'pizza' },
-                version: '0.0.0',
-            };
+            return mockEikJSON();
         if (path.includes('.eikrc'))
             return { tokens: [['http://server', 'muffins']] };
         return {};
