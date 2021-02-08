@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/eik-lib/common/compare/v1.6.0...v2.0.0) (2021-02-08)
+
+
+* feat!: add type field to eik config schema ([d9bd0c4](https://github.com/eik-lib/common/commit/d9bd0c4bceee07506fb8e1efc3d2c09715a10062))
+
+
+### BREAKING CHANGES
+
+* valid eik config object is now required when instantiating EikConfig class
+
 # [1.6.0](https://github.com/eik-lib/common/compare/v1.5.0...v1.6.0) (2021-01-27)
 
 
