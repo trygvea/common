@@ -92,6 +92,12 @@ test('setting the version', (t) => {
     t.end();
 });
 
+test('getting the type - default value', (t) => {
+    const config = new EikConfig(validEikConfig);
+    t.equal(config.type, 'package');
+    t.end();
+});
+
 test('pathsAndFiles returns expected contents', async (t) => {
     const config = new EikConfig(
         {
