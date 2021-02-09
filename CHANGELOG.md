@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/eik-lib/common/compare/v2.0.0...v2.0.1) (2021-02-09)
+
+
+### Bug Fixes
+
+* correctly return default type from eik-config class ([fadaea7](https://github.com/eik-lib/common/commit/fadaea794346c77ce60b07fb8efd3684fc2c3911))
+
 # [2.0.0](https://github.com/eik-lib/common/compare/v1.6.0...v2.0.0) (2021-02-08)
 
 
