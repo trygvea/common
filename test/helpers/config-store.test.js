@@ -111,17 +111,24 @@ test('name is pulled from package.json if not defined in eik.json', (t) => {
             return {
                 name: 'big pizza co',
                 version: '0.0.0',
+                eik: {
+                    server: 'https://test',
+                    files: {
+                        '/': './dist/**/*.js'
+                    },
+                },
             };
         if (path.includes('eik.json'))
-            return {
-                server: 'http://server',
-                files: { '/': 'pizza' },
-            };
+            return null;
         return {};
     };
     const config = configStore.findInDirectory('pizza dir', jsonReaderStub);
     t.equal(config.name, 'big pizza co');
     t.equal(config.version, '0.0.0');
+    t.equal(config.server, 'https://test');
+    t.same(config.files, {
+        '/': './dist/**/*.js'
+    });
     t.end();
 });
 
