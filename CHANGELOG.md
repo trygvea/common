@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/eik-lib/common/compare/v2.0.2...v2.0.3) (2021-02-11)
+
+
+### Bug Fixes
+
+* handle file keys starting with . correctly ([01c0dd8](https://github.com/eik-lib/common/commit/01c0dd8f9f4485ef35489629526c5871e35a83e8))
+
 ## [2.0.2](https://github.com/eik-lib/common/compare/v2.0.1...v2.0.2) (2021-02-10)
 
 
