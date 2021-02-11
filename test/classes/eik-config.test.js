@@ -291,3 +291,26 @@ test('pathsAndFilesAbsolute - does not throw for directory glob pattern', async 
     t.ok(true);
     t.end();
 });
+
+test('pathsAndFilesAbsolute - glob should not flatten files', async (t) => {
+    t.plan(1);
+    const baseDir = join(__dirname, '..', 'fixtures');
+    const config = new EikConfig(
+        {
+            ...validEikConfig,
+            files: {
+                '/': './**/*.map',
+            },
+        },
+        null,
+        baseDir,
+    );
+
+    const mapping = await config.pathsAndFilesAbsolute();
+
+    t.equal(
+        mapping.get(join(baseDir, 'nested/client.js.map')),
+        join(baseDir, '.eik', 'nested/client.js.map'),
+    );
+    t.end();
+});
