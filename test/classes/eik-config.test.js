@@ -150,7 +150,7 @@ test('pathsAndFiles handles invalid globs', async (t) => {
     t.end();
 });
 
-test('pathsAndFiles does not allow a destination to have multiple sources', async (t) => {
+test('pathsAndFiles does not allow a single destination to have multiple sources', async (t) => {
     t.plan(1);
     const config = new EikConfig(
         {
@@ -207,5 +207,87 @@ test('pathsAndFilesAbsolute handles files which are already absolute', async (t)
     const dest = join(baseDir, '.eik', 'client.js');
     t.equal(mapping.get(src), dest);
 
+    t.end();
+});
+
+test('pathsAndFilesAbsolute - files pathnames beginning with .', async (t) => {
+    t.plan(4);
+    const baseDir = join(__dirname, '..', 'fixtures');
+    const config = new EikConfig(
+        {
+            ...validEikConfig,
+            files: {
+                'esm.css': './styles.css',
+                'esm.js': './client.js',
+                './nested': './nested/*.map',
+                './': './*.map',
+            },
+        },
+        null,
+        baseDir,
+    );
+    const mapping = await config.pathsAndFilesAbsolute();
+    t.equal(
+        mapping.get(join(baseDir, 'styles.css')),
+        join(baseDir, '.eik', 'esm.css'),
+    );
+    t.equal(
+        mapping.get(join(baseDir, 'styles.css.map')),
+        join(baseDir, '.eik', 'styles.css.map'),
+    );
+    t.equal(
+        mapping.get(join(baseDir, 'client.js')),
+        join(baseDir, '.eik', 'esm.js'),
+    );
+    t.equal(
+        mapping.get(join(baseDir, 'client.js.map')),
+        join(baseDir, '.eik', 'client.js.map'),
+    );
+
+    t.end();
+});
+
+test('pathsAndFilesAbsolute - throws for not existent directory paths', async (t) => {
+    t.plan(1);
+    const baseDir = join(__dirname, '..', 'fixtures');
+    const config = new EikConfig(
+        {
+            ...validEikConfig,
+            files: {
+                '/': './does/not/exist/*.map',
+            },
+        },
+        null,
+        baseDir,
+    );
+
+    try {
+        await config.pathsAndFilesAbsolute();
+    } catch (err) {
+        t.equals(
+            err.message,
+            "No files found for path: './does/not/exist/*.map'",
+        );
+    }
+
+    t.end();
+});
+
+test('pathsAndFilesAbsolute - does not throw for directory glob pattern', async (t) => {
+    t.plan(1);
+    const baseDir = join(__dirname, '..', 'fixtures');
+    const config = new EikConfig(
+        {
+            ...validEikConfig,
+            files: {
+                '/': './**/*.map',
+            },
+        },
+        null,
+        baseDir,
+    );
+
+    await config.pathsAndFilesAbsolute();
+    t.ok(true);
     t.end();
 });
