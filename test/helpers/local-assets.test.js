@@ -42,8 +42,8 @@ test('Setup development routes for express', async t => {
 
     const res1 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js', `http://localhost:${server.port}`));
     const res2 = await fetch(new URL('/pkg/my-app/1.0.0/esm.css', `http://localhost:${server.port}`));
-    const res3 = await fetch(new URL('/pkg/my-app/1.0.0/esm.css.map', `http://localhost:${server.port}`));
-    const res4 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js.map', `http://localhost:${server.port}`));
+    const res3 = await fetch(new URL('/pkg/my-app/1.0.0/assets/esm.css.map', `http://localhost:${server.port}`));
+    const res4 = await fetch(new URL('/pkg/my-app/1.0.0/assets/esm.js.map', `http://localhost:${server.port}`));
 
     t.equal(res1.status, 200);
     t.equal(res2.status, 200);
@@ -60,8 +60,8 @@ test('Setup development routes for fastify', async t => {
 
     const res1 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js', address));
     const res2 = await fetch(new URL('/pkg/my-app/1.0.0/esm.css', address));
-    const res3 = await fetch(new URL('/pkg/my-app/1.0.0/esm.css.map', address));
-    const res4 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js.map', address));
+    const res3 = await fetch(new URL('/pkg/my-app/1.0.0/assets/esm.css.map', address));
+    const res4 = await fetch(new URL('/pkg/my-app/1.0.0/assets/esm.js.map', address));
 
     t.equal(res1.status, 200);
     t.equal(res2.status, 200);

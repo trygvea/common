@@ -15,8 +15,8 @@ test('Generate package URL for given key: directory', async t => {
         configRootDir: __dirname,
     });
 
-    t.equal(`https://assets.myeikserver.com/pkg/my-app/1.0.0/esm.css.map`, url[0].href);
-    t.equal(`https://assets.myeikserver.com/pkg/my-app/1.0.0/esm.js.map`, url[1].href);
+    t.equal(`https://assets.myeikserver.com/pkg/my-app/1.0.0/assets/esm.css.map`, url[0].href);
+    t.equal(`https://assets.myeikserver.com/pkg/my-app/1.0.0/assets/esm.js.map`, url[1].href);
     t.end();
 });
 
