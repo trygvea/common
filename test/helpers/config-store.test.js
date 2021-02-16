@@ -212,33 +212,12 @@ test('saves config to disk - invalid config - passed config not a instance of Ei
 });
 
 test('saves config to disk - invalid config', async (t) => {
-    const config = new EikConfig({});
+    const config = new EikConfig(null);
     try {
         configStore.persistToDisk(config);
     } catch(err) {
         t.match(`${err}`, `InvalidConfigError: Eik config object was invalid: 'config.persistToDisk operation failed: Invalid eik.json schema: should have required property 'server'`);
     }
 
-    t.end();
-});
-
-test('handles no path being provided', async (t) => {
-    t.plan(1);
-    const config = new EikConfig({
-        name: 'magarita',
-        server: 'http://server',
-        files: { '/': 'pizza' },
-        version: '0.0.0',
-        out: 'muffins',
-    });
-
-    try {
-        configStore.persistToDisk(config);
-    } catch (e) {
-        t.equal(
-            e.message,
-            'The "path" argument must be of type string. Received undefined',
-        );
-    }
     t.end();
 });
