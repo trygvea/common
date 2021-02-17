@@ -119,14 +119,14 @@ test('validate files: valid', t => {
 test('validate files: invalid', t => {
     const result = validate.files({'asd': 1});
     t.same(result.value, {'asd': 1});
-    t.equal(result.error.length, 1);
+    t.equal(result.error.length, 3);
     t.end();
 });
 
 test('validate files: invalid', t => {
     const result = validate.files({});
     t.same(result.value, {});
-    t.equal(result.error.length, 1);
+    t.equal(result.error.length, 3);
     t.end();
 });
 

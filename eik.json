@@ -1,9 +1,0 @@
-{
-  "name": "magarita",
-  "server": "http://server",
-  "files": {
-    "/": "pizza"
-  },
-  "version": "0.0.0",
-  "out": "muffins"
-}

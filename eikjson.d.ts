@@ -25,9 +25,11 @@ export interface EikjsonSchema {
   /**
    * File mapping definition for the package. Keys represent files or paths to be created on the Eik Server. Values represent paths to local files to be published.
    */
-  files: {
-    [k: string]: string;
-  };
+  files:
+    | {
+        [k: string]: string;
+      }
+    | string;
   /**
    * Import map files given by URL(s) to be used during package bundling. Specified as a URL or array of URLs. URLs are locations of import map files that follow the W3C import map spec.
    */

@@ -65,7 +65,7 @@ test('single token present', (t) => {
 test('multiple tokens present', (t) => {
     const config = new EikConfig(validEikConfig, [
         ['http://server', 'muffins'],
-        [],
+        ['http://server2', 'cupcakes'],
     ]);
     t.equal(config.server, 'http://server');
     t.equal(config.token, 'muffins');
