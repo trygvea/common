@@ -7,9 +7,7 @@
     "checkJs": true,
     "allowJs": true,
     "moduleResolution": "node",
-    "noEmit": false,
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "outFile": "./types.d.ts"
-  }
+    "noEmit": true
+  },
+  "include": ["lib"]
 }

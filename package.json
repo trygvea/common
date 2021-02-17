@@ -12,7 +12,8 @@
     "test": "tap test/**/*.test.js",
     "lint:fix": "eslint --fix .",
     "lint": "eslint .",
-    "schema:types": "json2ts lib/schemas/eikjson.schema.json > eikjson.d.ts"
+    "schema:types": "json2ts lib/schemas/eikjson.schema.json > eikjson.d.ts",
+    "typecheck": "tsc"
   },
   "repository": {
     "type": "git",
