@@ -13,6 +13,7 @@
     "lint:fix": "eslint --fix .",
     "lint": "eslint .",
     "schema:types": "json2ts lib/schemas/eikjson.schema.json > eikjson.d.ts",
+    "schema:outdated": "npm run schema:types && git diff --exit-code HEAD:eikjson.d.ts eikjson.d.ts",
     "typecheck": "tsc"
   },
   "repository": {

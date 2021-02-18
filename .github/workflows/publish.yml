@@ -30,6 +30,11 @@ jobs:
       npm run typecheck
     env:
       CI: true
+  - name: check eik json schema is up to date
+    run: |
+      npm run schema:outdated
+    env:
+      CI: true
   - name: run tests
     run: |
       npm test
