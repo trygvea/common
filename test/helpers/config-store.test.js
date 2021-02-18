@@ -67,8 +67,11 @@ test('loads from eik.json - invalid config', (t) => {
                 return null;
             return {};
         });
-    } catch(err) {
-        t.match(`${err}`, `InvalidConfigError: Eik config object was invalid: 'config.findInDirectory operation failed: Invalid eik.json schema: should have required property 'server'`);
+    } catch (err) {
+        t.match(
+            `${err}`,
+            `InvalidConfigError: Eik config object was invalid: 'config.findInDirectory operation failed: Invalid eik.json schema: should have required property 'server'`,
+        );
     }
     t.end();
 });
@@ -114,12 +117,11 @@ test('name is pulled from package.json if not defined in eik.json', (t) => {
                 eik: {
                     server: 'https://test',
                     files: {
-                        '/': './dist/**/*.js'
+                        '/': './dist/**/*.js',
                     },
                 },
             };
-        if (path.includes('eik.json'))
-            return null;
+        if (path.includes('eik.json')) return null;
         return {};
     };
     const config = configStore.findInDirectory('pizza dir', jsonReaderStub);
@@ -127,15 +129,14 @@ test('name is pulled from package.json if not defined in eik.json', (t) => {
     t.equal(config.version, '0.0.0');
     t.equal(config.server, 'https://test');
     t.same(config.files, {
-        '/': './dist/**/*.js'
+        '/': './dist/**/*.js',
     });
     t.end();
 });
 
 test('tokens are present', (t) => {
     const config = configStore.findInDirectory('pizza dir', (path) => {
-        if (path.includes('eik.json'))
-            return mockEikJSON();
+        if (path.includes('eik.json')) return mockEikJSON();
         if (path.includes('.eikrc'))
             return { tokens: [['http://server', 'muffins']] };
         return {};
@@ -201,11 +202,14 @@ test('saves config to disk', async (t) => {
 });
 
 test('saves config to disk - invalid config - passed config not a instance of EikConfig', async (t) => {
-    const config = {}
+    const config = {};
     try {
         configStore.persistToDisk(config);
-    } catch(err) {
-        t.match(`${err}`, `InvalidConfigError: Eik config object was invalid: 'config.persistToDisk operation failed: config.validate is not a function'`);
+    } catch (err) {
+        t.match(
+            `${err}`,
+            `InvalidConfigError: Eik config object was invalid: 'config.persistToDisk operation failed: config.validate is not a function'`,
+        );
     }
 
     t.end();
@@ -215,8 +219,11 @@ test('saves config to disk - invalid config', async (t) => {
     const config = new EikConfig(null);
     try {
         configStore.persistToDisk(config);
-    } catch(err) {
-        t.match(`${err}`, `InvalidConfigError: Eik config object was invalid: 'config.persistToDisk operation failed: Invalid eik.json schema: should have required property 'server'`);
+    } catch (err) {
+        t.match(
+            `${err}`,
+            `InvalidConfigError: Eik config object was invalid: 'config.persistToDisk operation failed: Invalid eik.json schema: should have required property 'server'`,
+        );
     }
 
     t.end();

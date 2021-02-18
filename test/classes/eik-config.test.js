@@ -559,7 +559,7 @@ test('mappings - files is an object - remaps name of file', async (t) => {
             ...validEikConfig,
             files: {
                 'script.js': 'folder/client.js',
-            }
+            },
         },
         null,
         baseDir,
@@ -586,7 +586,7 @@ test('mappings - files is an object - remaps name of file - absolute path to fil
             ...validEikConfig,
             files: {
                 'script.js': join(__dirname, '../fixtures/folder/client.js'),
-            }
+            },
         },
         null,
         baseDir,
@@ -612,8 +612,8 @@ test('mappings - files is an object - mapped to folder - absolute path to folder
         {
             ...validEikConfig,
             files: {
-                'folder': join(__dirname, '../fixtures/folder'),
-            }
+                folder: join(__dirname, '../fixtures/folder'),
+            },
         },
         null,
         baseDir,
@@ -647,8 +647,8 @@ test('mappings - files is an object - mapped to folder - relative path to folder
         {
             ...validEikConfig,
             files: {
-                'folder': './folder',
-            }
+                folder: './folder',
+            },
         },
         null,
         baseDir,
@@ -682,8 +682,8 @@ test('mappings - files is an object - mapped to folder - relative path to folder
         {
             ...validEikConfig,
             files: {
-                'folder': 'folder',
-            }
+                folder: 'folder',
+            },
         },
         null,
         baseDir,
@@ -717,8 +717,8 @@ test('mappings - files is an object - mapped to folder glob', async (t) => {
         {
             ...validEikConfig,
             files: {
-                'folder': 'folder/**/*',
-            }
+                folder: 'folder/**/*',
+            },
         },
         null,
         baseDir,
@@ -752,8 +752,8 @@ test('mappings - files is an object - mapped to folder glob - no folder recursio
         {
             ...validEikConfig,
             files: {
-                'folder': '*',
-            }
+                folder: '*',
+            },
         },
         null,
         baseDir,
@@ -771,7 +771,7 @@ test('mappings - files is an object - mapped to nested folder', async (t) => {
             ...validEikConfig,
             files: {
                 'path/to/folder': 'folder',
-            }
+            },
         },
         null,
         baseDir,

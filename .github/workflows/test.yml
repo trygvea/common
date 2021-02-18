@@ -25,6 +25,11 @@ jobs:
           npm run lint
         env:
           CI: true
+      - name: style check files
+        run: |
+          npm run style:check
+        env:
+          CI: true
       - name: typecheck files
         run: |
           npm run typecheck

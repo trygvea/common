@@ -8,7 +8,7 @@ This package contains common utilities and schemas
 
 #### eik.json
 
-Importing schemas 
+Importing schemas
 
 ```js
 const { schemas, assert } = require('@eik/common');
@@ -24,7 +24,7 @@ const { error, value } = schemas.validate.eikJSON({
     files: [],
 });
 
-//or 
+//or
 
 assert.eikJSON({
     name: 'my-app',
@@ -75,24 +75,27 @@ const { error, value } = schemas.validate.server('http://myeikserver.com');
 
 assert.server('http://myeikserver.com');
 ```
+
 ##### files
 
 ```js
 const { error, value } = schemas.validate.files({
-    './index.js': '/path/to/file.js'
+    './index.js': '/path/to/file.js',
 });
 
 // or
 
 assert.files({
-    './index.js': '/path/to/file.js'
+    './index.js': '/path/to/file.js',
 });
 ```
 
 ##### import map
 
 ```js
-const { error, value } = schemas.validate.importMap('http://meserver.com/map.json');
+const { error, value } = schemas.validate.importMap(
+    'http://meserver.com/map.json',
+);
 
 const { error, value } = schemas.validate.importMap([
     'http://meserver.com/map1.json',
@@ -137,10 +140,10 @@ For an `eik.json` file such as
     "name": "my-app",
     "version": "1.0.0",
     "server": "https://assets.myeikserver.com",
-    "files" :{
+    "files": {
         "esm.js": "./assets/esm.js",
         "esm.css": "./assets/esm.css",
-        "/": "./assets/**/*.map",
+        "/": "./assets/**/*.map"
     }
 }
 ```
@@ -156,7 +159,7 @@ A number of routes would be mounted into your app.
 
 #### packageURL
 
-This helper function can be used to build URLs for given entries in an `eik.json` files section. 
+This helper function can be used to build URLs for given entries in an `eik.json` files section.
 
 Given the following `eik.json` file:
 
@@ -165,10 +168,10 @@ Given the following `eik.json` file:
     "name": "my-app",
     "version": "1.0.0",
     "server": "https://assets.myeikserver.com",
-    "files" :{
+    "files": {
         "esm.js": "./assets/esm.js",
         "esm.css": "./assets/esm.css",
-        "/": "./assets/**/*.map",
+        "/": "./assets/**/*.map"
     }
 }
 ```
@@ -181,4 +184,3 @@ const url = await helpers.packageURL('esm.js');
 ```
 
 The URL returned will be `https://assets.myeikserver.com/pkg/my-app/1.0.0/esm.js`
-
