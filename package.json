@@ -9,7 +9,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "tap test/**/*.test.js",
+    "test": "tap --test-regex=.test.js --test-ignore=node_modules",
     "lint:fix": "eslint --fix .",
     "lint": "eslint .",
     "schema:types": "json2ts lib/schemas/eikjson.schema.json > eikjson.d.ts",
@@ -34,6 +34,7 @@
     "ajv-formats": "^1.5.1",
     "glob": "^7.1.6",
     "is-glob": "^4.0.1",
+    "mime-types": "^2.1.29",
     "node-fetch": "^2.6.1",
     "semver": "^7.0.0",
     "validate-npm-package-name": "^3.0.0"
