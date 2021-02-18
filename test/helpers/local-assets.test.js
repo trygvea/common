@@ -35,15 +35,29 @@ class Server {
     }
 }
 
-test('Setup development routes for express', async t => {
+test('Setup development routes for express', async (t) => {
     const server = new Server();
     await localAssets(server.app, __dirname);
     await server.start();
 
-    const res1 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js', `http://localhost:${server.port}`));
-    const res2 = await fetch(new URL('/pkg/my-app/1.0.0/esm.css', `http://localhost:${server.port}`));
-    const res3 = await fetch(new URL('/pkg/my-app/1.0.0/esm.css.map', `http://localhost:${server.port}`));
-    const res4 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js.map', `http://localhost:${server.port}`));
+    const res1 = await fetch(
+        new URL('/pkg/my-app/1.0.0/esm.js', `http://localhost:${server.port}`),
+    );
+    const res2 = await fetch(
+        new URL('/pkg/my-app/1.0.0/esm.css', `http://localhost:${server.port}`),
+    );
+    const res3 = await fetch(
+        new URL(
+            '/pkg/my-app/1.0.0/assets/esm.css.map',
+            `http://localhost:${server.port}`,
+        ),
+    );
+    const res4 = await fetch(
+        new URL(
+            '/pkg/my-app/1.0.0/assets/esm.js.map',
+            `http://localhost:${server.port}`,
+        ),
+    );
 
     t.equal(res1.status, 200);
     t.equal(res2.status, 200);
@@ -53,15 +67,19 @@ test('Setup development routes for express', async t => {
     t.end();
 });
 
-test('Setup development routes for fastify', async t => {
+test('Setup development routes for fastify', async (t) => {
     const server = fastify();
     await localAssets(server, __dirname);
     const address = await server.listen();
 
     const res1 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js', address));
     const res2 = await fetch(new URL('/pkg/my-app/1.0.0/esm.css', address));
-    const res3 = await fetch(new URL('/pkg/my-app/1.0.0/esm.css.map', address));
-    const res4 = await fetch(new URL('/pkg/my-app/1.0.0/esm.js.map', address));
+    const res3 = await fetch(
+        new URL('/pkg/my-app/1.0.0/assets/esm.css.map', address),
+    );
+    const res4 = await fetch(
+        new URL('/pkg/my-app/1.0.0/assets/esm.js.map', address),
+    );
 
     t.equal(res1.status, 200);
     t.equal(res2.status, 200);
@@ -71,12 +89,12 @@ test('Setup development routes for fastify', async t => {
     t.end();
 });
 
-test('Invalid app instance', async t => {
+test('Invalid app instance', async (t) => {
     t.rejects(localAssets({}, __dirname));
     t.end();
 });
 
-test('Invalid eik.json string', async t => {
+test('Invalid eik.json string', async (t) => {
     const server = fastify();
     t.rejects(localAssets(server, ''));
     t.end();
