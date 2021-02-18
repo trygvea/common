@@ -1,12 +1,12 @@
 name: Release and Publish
 
 on:
- push:
-  branches: 
-    - master
-    - alpha
-    - beta
-    - next
+  push:
+    branches:
+      - master
+      - alpha
+      - beta
+      - next
 
 jobs:
   test:
