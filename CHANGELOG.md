@@ -1,3 +1,25 @@
+# [3.0.0-next.1](https://github.com/eik-lib/common/compare/v2.0.3...v3.0.0-next.1) (2021-02-18)
+
+
+### Features
+
+* add extension, mime-type and content-type to file location ([a9b4fe1](https://github.com/eik-lib/common/commit/a9b4fe15cf39425070b9bd260183656933d94c5d))
+* add mappings() method to eik config object ([f989ae0](https://github.com/eik-lib/common/commit/f989ae0e2de0aa5646fd33d0f5854bc7e74c8734)), closes [/github.com/eik-lib/issues/issues/2#issuecomment-779099732](https://github.com//github.com/eik-lib/issues/issues/2/issues/issuecomment-779099732)
+
+
+* refactor!: packageURL removed, localAssets fixed and updated ([90fd181](https://github.com/eik-lib/common/commit/90fd1818f69384d4edeb056dc2c8367e51b21d44))
+* refactor!: remove pathsAndFiles methods ([90d8a12](https://github.com/eik-lib/common/commit/90d8a12e4df8e3a37f295c6136e94bf4ade68cb4))
+* feat!: preserve directory structure when globbing in config ([dff2830](https://github.com/eik-lib/common/commit/dff28301f9bc6e37ef9db32455fa64f5a7a9e80a))
+
+
+### BREAKING CHANGES
+
+* packageURL was removed as it no longer makes sense given the changes to eik json files config
+
+localAssets has been refactored to use the new mappings method of eik config
+* Consumers of the Eik Config class will all need to be updated to use the newer .mappings() method instead.
+* directory structures are no longer flattened
+
 ## [2.0.3](https://github.com/eik-lib/common/compare/v2.0.2...v2.0.3) (2021-02-11)
 
 
