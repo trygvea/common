@@ -9,7 +9,11 @@ tap.test('LocalFileLocation: .mimeType for ./my/file.json', (t) => {
 
 tap.test('LocalFileLocation: .mimeType for ./my/file.js', (t) => {
     const subject = new LocalFileLocation('./my/file.js', __dirname);
-    t.equal(subject.mimeType, 'application/javascript', 'should be treated as JavaScript');
+    t.equal(
+        subject.mimeType,
+        'application/javascript',
+        'should be treated as JavaScript',
+    );
     t.end();
 });
 
@@ -25,8 +29,15 @@ tap.test('LocalFileLocation: .mimeType for file.jpg', (t) => {
     t.end();
 });
 
-tap.test('LocalFileLocation: .mimeType should fallback for unknown file extension', (t) => {
-    const subject = new LocalFileLocation('./my/file.unknown', __dirname);
-    t.equal(subject.mimeType, 'application/octet-stream', 'should be treated as application/octet-stream');
-    t.end();
-});
+tap.test(
+    'LocalFileLocation: .mimeType should fallback for unknown file extension',
+    (t) => {
+        const subject = new LocalFileLocation('./my/file.unknown', __dirname);
+        t.equal(
+            subject.mimeType,
+            'application/octet-stream',
+            'should be treated as application/octet-stream',
+        );
+        t.end();
+    },
+);
