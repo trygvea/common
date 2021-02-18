@@ -1,9 +1,9 @@
 const { test } = require('tap');
 const { join } = require('path');
-const FileMapping = require('../../lib/classes/file-mapping');
-const LocalFileLocation = require('../../lib/classes/local-file-location');
-const RemoteFileLocation = require('../../lib/classes/remote-file-location');
-const EikConfig = require('../../lib/classes/eik-config');
+const FileMapping = require('../../../lib/classes/file-mapping');
+const LocalFileLocation = require('../../../lib/classes/local-file-location');
+const RemoteFileLocation = require('../../../lib/classes/remote-file-location');
+const EikConfig = require('../../../lib/classes/eik-config');
 
 const validEikConfig = {
     name: 'pizza',
@@ -12,97 +12,9 @@ const validEikConfig = {
     version: '0.0.0',
 };
 
-test('basic config properties', (t) => {
-    const config = new EikConfig(validEikConfig);
-    t.equal(config.name, 'pizza');
-    t.same(config.files, { '/': 'pizza' });
-    t.equal(config.version, '0.0.0');
-    t.end();
-});
-
-test('map property', (t) => {
-    let config = new EikConfig({
-        ...validEikConfig,
-        'import-map': 'http://map',
-    });
-    t.deepEqual(config.map, ['http://map']);
-
-    config = new EikConfig({
-        ...validEikConfig,
-        'import-map': ['http://map', 'http://map'],
-    });
-    t.deepEqual(config.map, ['http://map', 'http://map']);
-    t.end();
-});
-
-test('out property', (t) => {
-    t.equal(new EikConfig(validEikConfig).out, '.eik', 'defaults to .eik');
-    t.equal(
-        new EikConfig({
-            ...validEikConfig,
-            out: './pizza-box',
-        }).out,
-        './pizza-box',
-    );
-    t.end();
-});
-
-test('no token configured', (t) => {
-    const config = new EikConfig(validEikConfig, null);
-    t.same(config.token, null);
-    t.end();
-});
-
-test('single token present', (t) => {
-    const config = new EikConfig(validEikConfig, [
-        ['http://server', 'muffins'],
-    ]);
-    t.equal(config.server, 'http://server');
-    t.equal(config.token, 'muffins');
-    t.end();
-});
-
-test('multiple tokens present', (t) => {
-    const config = new EikConfig(validEikConfig, [
-        ['http://server', 'muffins'],
-        ['http://server2', 'cupcakes'],
-    ]);
-    t.equal(config.server, 'http://server');
-    t.equal(config.token, 'muffins');
-    t.end();
-});
-
-test('server configured explicitly', (t) => {
-    const config = new EikConfig(validEikConfig, [
-        ['bakery', 'muffins'],
-        ['http://server', 'kumara pie'],
-    ]);
-    t.equal(config.server, 'http://server');
-    t.equal(config.token, 'kumara pie');
-    t.end();
-});
-
-test('cwd property', (t) => {
-    const config = new EikConfig(validEikConfig, null, 'pizza shop');
-    t.equal(config.cwd, 'pizza shop');
-    t.end();
-});
-
-test('setting the version', (t) => {
-    const config = new EikConfig(validEikConfig);
-    config.version = '0.0.1';
-    t.equal(config.version, '0.0.1');
-    t.end();
-});
-
-test('getting the type - default value', (t) => {
-    const config = new EikConfig(validEikConfig);
-    t.equal(config.type, 'package');
-    t.end();
-});
+const baseDir = join(__dirname, '../../fixtures');
 
 test('mappings - directory given', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -137,7 +49,6 @@ test('mappings - directory given', async (t) => {
 });
 
 test('mappings - directory given - prefixed by ./', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -169,7 +80,6 @@ test('mappings - directory given - prefixed by ./', async (t) => {
 });
 
 test('mappings - directory given - trailing /', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -201,7 +111,6 @@ test('mappings - directory given - trailing /', async (t) => {
 });
 
 test('mappings - directory given - prefixed by ./', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -233,7 +142,6 @@ test('mappings - directory given - prefixed by ./', async (t) => {
 });
 
 test('mappings - recursive glob given', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -265,7 +173,6 @@ test('mappings - recursive glob given', async (t) => {
 });
 
 test('mappings - file given', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -289,7 +196,6 @@ test('mappings - file given', async (t) => {
 });
 
 test('mappings - file given via glob', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -313,7 +219,6 @@ test('mappings - file given via glob', async (t) => {
 });
 
 test('mappings - files given via glob - nested directories', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -336,7 +241,6 @@ test('mappings - files given via glob - nested directories', async (t) => {
 });
 
 test('mappings - files is an object - remaps name of file', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -363,12 +267,11 @@ test('mappings - files is an object - remaps name of file', async (t) => {
 });
 
 test('mappings - files is an object - remaps name of file - absolute path to file given', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
             files: {
-                'script.js': join(__dirname, '../fixtures/folder/client.js'),
+                'script.js': join(baseDir, 'folder/client.js'),
             },
         },
         null,
@@ -390,12 +293,11 @@ test('mappings - files is an object - remaps name of file - absolute path to fil
 });
 
 test('mappings - files is an object - mapped to folder - absolute path to folder given', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
             files: {
-                folder: join(__dirname, '../fixtures/folder'),
+                folder: join(baseDir, 'folder'),
             },
         },
         null,
@@ -425,7 +327,6 @@ test('mappings - files is an object - mapped to folder - absolute path to folder
 });
 
 test('mappings - files is an object - mapped to folder - relative path to folder given', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -460,7 +361,6 @@ test('mappings - files is an object - mapped to folder - relative path to folder
 });
 
 test('mappings - files is an object - mapped to folder - relative path to folder given - no leading . in path', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -495,7 +395,6 @@ test('mappings - files is an object - mapped to folder - relative path to folder
 });
 
 test('mappings - files is an object - mapped to folder glob', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -530,7 +429,6 @@ test('mappings - files is an object - mapped to folder glob', async (t) => {
 });
 
 test('mappings - files is an object - mapped to folder glob - no folder recursion', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
@@ -548,7 +446,6 @@ test('mappings - files is an object - mapped to folder glob - no folder recursio
 });
 
 test('mappings - files is an object - mapped to nested folder', async (t) => {
-    const baseDir = join(__dirname, '..', 'fixtures');
     const config = new EikConfig(
         {
             ...validEikConfig,
