@@ -5,6 +5,6 @@
   "files": {
     "esm.js": "./assets/esm.js",
     "esm.css": "./assets/esm.css",
-    "/": "./assets/**/*.map"
+    "/assets": "./assets/**/*.map"
   }
 }
