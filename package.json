@@ -3,10 +3,12 @@
   "version": "4.0.0-next.1",
   "description": "Common utilities for Eik modules",
   "main": "lib/index.js",
+  "types": "types/index.d.ts",
   "files": [
     "CHANGELOG.md",
     "package.json",
-    "lib"
+    "lib",
+    "types"
   ],
   "scripts": {
     "test": "tap --test-regex=.test.js --test-ignore=node_modules",
@@ -16,7 +18,8 @@
     "schema:outdated": "npm run schema:types && git diff --exit-code HEAD:eikjson.d.ts eikjson.d.ts",
     "style:check": "prettier -c .",
     "style:format": "prettier -w .",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "prepublish": "npm run typecheck"
   },
   "repository": {
     "type": "git",
