@@ -1,3 +1,10 @@
+# [4.0.0-next.1](https://github.com/eik-lib/common/compare/v3.0.0-next.1...v4.0.0-next.1) (2021-02-19)
+
+
+### Features
+
+* Add hapi support for local assets ([7528c32](https://github.com/eik-lib/common/commit/7528c3277c537e7e0a4228c949988bc7e7a90074))
+
 # [3.0.0-next.1](https://github.com/eik-lib/common/compare/v2.0.3...v3.0.0-next.1) (2021-02-18)
 
 
