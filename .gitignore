@@ -11,3 +11,4 @@ tmp/**/*
 coverage
 .vscode
 eik.json
+types
