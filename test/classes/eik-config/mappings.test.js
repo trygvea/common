@@ -501,6 +501,6 @@ test('mappings - files is an object - mapped to folder - absolute path to folder
     t.match(mappings[0].source.absolute, 'test/fixtures/folder/client.js');
     t.equal(mappings[0].destination.packagePathname, '/pkg/pizza/0.0.0');
     t.equal(mappings[0].destination.filePathname, '/folder/client.js');
-    
+
     t.end();
 });
