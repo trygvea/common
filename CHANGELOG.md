@@ -1,3 +1,10 @@
+# [4.0.0-next.4](https://github.com/eik-lib/common/compare/v4.0.0-next.3...v4.0.0-next.4) (2021-02-23)
+
+
+### Bug Fixes
+
+* include eik json schema file in package when publishing ([f0c3c45](https://github.com/eik-lib/common/commit/f0c3c45439a637e8a3cb3a475bca70f2a77c1901))
+
 # [4.0.0-next.3](https://github.com/eik-lib/common/compare/v4.0.0-next.2...v4.0.0-next.3) (2021-02-23)
 
 
