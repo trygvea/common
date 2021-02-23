@@ -1,3 +1,10 @@
+# [4.0.0-next.2](https://github.com/eik-lib/common/compare/v4.0.0-next.1...v4.0.0-next.2) (2021-02-23)
+
+
+### Bug Fixes
+
+* ensure absolute file paths work as expected ([4f6ce5e](https://github.com/eik-lib/common/commit/4f6ce5e251dcbf0df0b51cc36f73b10585b96538))
+
 # [4.0.0-next.1](https://github.com/eik-lib/common/compare/v3.0.0-next.1...v4.0.0-next.1) (2021-02-19)
 
 
