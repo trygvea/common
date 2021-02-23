@@ -1,3 +1,10 @@
+# [4.0.0-next.3](https://github.com/eik-lib/common/compare/v4.0.0-next.2...v4.0.0-next.3) (2021-02-23)
+
+
+### Bug Fixes
+
+* update require statements to avoid circular dependencies ([4359bec](https://github.com/eik-lib/common/commit/4359bec140539c6144be48f7b9ff774b9601d068))
+
 # [4.0.0-next.2](https://github.com/eik-lib/common/compare/v4.0.0-next.1...v4.0.0-next.2) (2021-02-23)
 
 
