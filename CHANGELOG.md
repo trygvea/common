@@ -1,3 +1,33 @@
+# [3.0.0](https://github.com/eik-lib/common/compare/v2.0.3...v3.0.0) (2021-08-12)
+
+
+### Bug Fixes
+
+* ensure absolute file paths work as expected ([4f6ce5e](https://github.com/eik-lib/common/commit/4f6ce5e251dcbf0df0b51cc36f73b10585b96538))
+* include eik json schema file in package when publishing ([f0c3c45](https://github.com/eik-lib/common/commit/f0c3c45439a637e8a3cb3a475bca70f2a77c1901))
+* update require statements to avoid circular dependencies ([4359bec](https://github.com/eik-lib/common/commit/4359bec140539c6144be48f7b9ff774b9601d068))
+
+
+### Features
+
+* add extension, mime-type and content-type to file location ([a9b4fe1](https://github.com/eik-lib/common/commit/a9b4fe15cf39425070b9bd260183656933d94c5d))
+* Add hapi support for local assets ([7528c32](https://github.com/eik-lib/common/commit/7528c3277c537e7e0a4228c949988bc7e7a90074))
+* add mappings() method to eik config object ([f989ae0](https://github.com/eik-lib/common/commit/f989ae0e2de0aa5646fd33d0f5854bc7e74c8734)), closes [/github.com/eik-lib/issues/issues/2#issuecomment-779099732](https://github.com//github.com/eik-lib/issues/issues/2/issues/issuecomment-779099732)
+
+
+* refactor!: packageURL removed, localAssets fixed and updated ([90fd181](https://github.com/eik-lib/common/commit/90fd1818f69384d4edeb056dc2c8367e51b21d44))
+* refactor!: remove pathsAndFiles methods ([90d8a12](https://github.com/eik-lib/common/commit/90d8a12e4df8e3a37f295c6136e94bf4ade68cb4))
+* feat!: preserve directory structure when globbing in config ([dff2830](https://github.com/eik-lib/common/commit/dff28301f9bc6e37ef9db32455fa64f5a7a9e80a))
+
+
+### BREAKING CHANGES
+
+* packageURL was removed as it no longer makes sense given the changes to eik json files config
+
+localAssets has been refactored to use the new mappings method of eik config
+* Consumers of the Eik Config class will all need to be updated to use the newer .mappings() method instead.
+* directory structures are no longer flattened
+
 # [4.0.0-next.4](https://github.com/eik-lib/common/compare/v4.0.0-next.3...v4.0.0-next.4) (2021-02-23)
 
 
