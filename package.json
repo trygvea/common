@@ -1,17 +1,26 @@
 {
   "name": "@eik/common",
-  "version": "2.0.3",
+  "version": "4.0.0-next.4",
   "description": "Common utilities for Eik modules",
   "main": "lib/index.js",
+  "types": "types/index.d.ts",
   "files": [
     "CHANGELOG.md",
     "package.json",
-    "lib"
+    "lib",
+    "types",
+    "eikjson.d.ts"
   ],
   "scripts": {
-    "test": "tap",
+    "test": "tap --test-regex=.test.js --test-ignore=node_modules",
     "lint:fix": "eslint --fix .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "schema:types": "json2ts lib/schemas/eikjson.schema.json > eikjson.d.ts",
+    "schema:outdated": "npm run schema:types && git diff --exit-code HEAD:eikjson.d.ts eikjson.d.ts",
+    "style:check": "prettier -c .",
+    "style:format": "prettier -w .",
+    "typecheck": "tsc",
+    "prepublish": "npm run typecheck"
   },
   "repository": {
     "type": "git",
@@ -25,14 +34,17 @@
   },
   "homepage": "https://github.com/eik-lib/common#readme",
   "dependencies": {
-    "ajv": "^7.0.0",
-    "ajv-formats": "^1.5.1",
+    "ajv": "^8.6.2",
+    "ajv-formats": "^2.1.0",
     "glob": "^7.1.6",
+    "is-glob": "^4.0.1",
+    "mime-types": "^2.1.29",
     "node-fetch": "^2.6.1",
     "semver": "^7.0.0",
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
+    "@hapi/hapi": "^20.1.0",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/commit-analyzer": "8.0.1",
     "@semantic-release/git": "9.0.0",
@@ -46,9 +58,11 @@
     "eslint-plugin-prettier": "3.4.0",
     "express": "4.17.1",
     "fastify": "3.20.1",
+    "json-schema-to-typescript": "^10.1.3",
     "prettier": "2.3.2",
     "semantic-release": "17.4.4",
     "stoppable": "1.1.0",
-    "tap": "14.11.0"
+    "tap": "14.11.0",
+    "typescript": "^4.3.5"
   }
 }
