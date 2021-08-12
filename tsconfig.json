@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "module": "es2020",
     "target": "es2020",
     "resolveJsonModule": true,
@@ -15,7 +12,5 @@
     "emitDeclarationOnly": true,
     "outDir": "types"
   },
-  "include": [
-    "lib"
-  ]
+  "include": ["lib"]
 }
