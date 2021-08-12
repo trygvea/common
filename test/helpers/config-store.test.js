@@ -70,7 +70,7 @@ test('loads from eik.json - invalid config', (t) => {
     } catch (err) {
         t.match(
             `${err}`,
-            `InvalidConfigError: Eik config object was invalid: 'config.findInDirectory operation failed: Invalid eik.json schema: should have required property 'server'`,
+            `InvalidConfigError: Eik config object was invalid: 'config.findInDirectory operation failed: Invalid eik.json schema: must have required property 'server'`,
         );
     }
     t.end();
@@ -222,7 +222,7 @@ test('saves config to disk - invalid config', async (t) => {
     } catch (err) {
         t.match(
             `${err}`,
-            `InvalidConfigError: Eik config object was invalid: 'config.persistToDisk operation failed: Invalid eik.json schema: should have required property 'server'`,
+            `InvalidConfigError: Eik config object was invalid: 'config.persistToDisk operation failed: Invalid eik.json schema: must have required property 'server'`,
         );
     }
 

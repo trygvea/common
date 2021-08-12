@@ -22,7 +22,7 @@ test('validate asset manifest - all props invalid', (t) => {
     });
 
     t.same(result.value, { name: '', type: 'package' });
-    t.equal(result.error[0].message, `should have required property 'server'`);
+    t.equal(result.error[0].message, `must have required property 'server'`);
     t.end();
 });
 
@@ -67,7 +67,7 @@ test('validate type: empty string', (t) => {
     t.equal(result.error.length, 1);
     t.equal(
         result.error[0].message,
-        'should be equal to one of the allowed values',
+        'must be equal to one of the allowed values',
     );
     t.end();
 });
