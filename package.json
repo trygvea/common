@@ -58,7 +58,7 @@
     "eslint-plugin-prettier": "3.4.1",
     "express": "4.17.1",
     "fastify": "3.20.2",
-    "json-schema-to-typescript": "10.1.4",
+    "json-schema-to-typescript": "10.1.5",
     "prettier": "2.3.2",
     "semantic-release": "17.4.7",
     "stoppable": "1.1.0",
