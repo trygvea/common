@@ -57,7 +57,7 @@
     "eslint-plugin-import": "2.24.2",
     "eslint-plugin-prettier": "3.4.1",
     "express": "4.17.1",
-    "fastify": "3.21.6",
+    "fastify": "3.22.0",
     "json-schema-to-typescript": "10.1.5",
     "prettier": "2.4.1",
     "semantic-release": "17.4.7",
