@@ -12,7 +12,7 @@
     "eikjson.d.ts"
   ],
   "scripts": {
-    "test": "tap --test-regex=.test.js --test-ignore=node_modules",
+    "test": "tap  --no-check-coverage",
     "lint:fix": "eslint --fix .",
     "lint": "eslint .",
     "schema:types": "json2ts lib/schemas/eikjson.schema.json > eikjson.d.ts",
@@ -62,7 +62,7 @@
     "prettier": "2.4.1",
     "semantic-release": "17.4.7",
     "stoppable": "1.1.0",
-    "tap": "14.11.0",
+    "tap": "15.0.10",
     "typescript": "4.4.3"
   }
 }

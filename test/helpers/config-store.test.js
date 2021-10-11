@@ -45,7 +45,7 @@ test('loads from package.json', (t) => {
     t.equal(config.name, 'magarita');
     t.equal(config.version, '0.0.0');
     t.equal(config.notIncluded, undefined);
-    t.deepEqual(config.map, ['http://map']);
+    t.same(config.map, ['http://map']);
     t.end();
 });
 
