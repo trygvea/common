@@ -2,7 +2,7 @@ const { test } = require('tap');
 const { assert } = require('../../lib/schemas/index');
 
 test('assert basic eik JSON file', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.eikJSON({
             name: 'my-app-name',
             version: '1.0.0',
@@ -58,7 +58,7 @@ test('assert name: empty string', (t) => {
 });
 
 test('assert name: valid', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.name('@finn-no/my-app');
     });
     t.end();
@@ -79,7 +79,7 @@ test('assert version: empty string', (t) => {
 });
 
 test('assert version: valid', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.version('1.0.0');
     });
     t.end();
@@ -99,21 +99,21 @@ test('assert type: invalid', (t) => {
 });
 
 test('assert type: valid - package', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.type('package');
     });
     t.end();
 });
 
 test('assert type: valid - npm', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.type('npm');
     });
     t.end();
 });
 
 test('assert type: valid - map', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.type('map');
     });
     t.end();
@@ -127,7 +127,7 @@ test('assert version: invalid by node-semver module', (t) => {
 });
 
 test('assert server: valid', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.server('http://localhost:4000');
     });
     t.end();
@@ -141,7 +141,7 @@ test('assert server: invalid', (t) => {
 });
 
 test('assert files: valid', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.files({ 'index.js': '/path/to/file.js' });
     });
     t.end();
@@ -162,14 +162,14 @@ test('assert files: invalid', (t) => {
 });
 
 test('assert importMap: valid string', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.importMap('http://myimportmap/file.json');
     });
     t.end();
 });
 
 test('assert importMap: valid array', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.importMap([
             'http://myimportmap/file1.json',
             'http://myimportmap/file2.json',
@@ -193,7 +193,7 @@ test('assert importMap: invalid array', (t) => {
 });
 
 test('assert out: valid', (t) => {
-    t.notThrow(() => {
+    t.doesNotThrow(() => {
         assert.out('./.eik');
     });
     t.end();

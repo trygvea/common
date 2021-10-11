@@ -13,7 +13,7 @@ test('EikConfig: .map: set to string http://map', (t) => {
         ...validEikConfig,
         'import-map': 'http://map',
     });
-    t.deepEqual(config.map, ['http://map'], 'should be wrapped into an array');
+    t.same(config.map, ['http://map'], 'should be wrapped into an array');
     t.end();
 });
 
@@ -22,7 +22,7 @@ test('EikConfig: .map: set to an array with two values', (t) => {
         ...validEikConfig,
         'import-map': ['http://map', 'http://map'],
     });
-    t.deepEqual(
+    t.same(
         config.map,
         ['http://map', 'http://map'],
         'should remain the same as input',

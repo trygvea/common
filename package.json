@@ -12,7 +12,7 @@
     "eikjson.d.ts"
   ],
   "scripts": {
-    "test": "tap --test-regex=.test.js --test-ignore=node_modules",
+    "test": "tap  --no-check-coverage",
     "lint:fix": "eslint --fix .",
     "lint": "eslint .",
     "schema:types": "json2ts lib/schemas/eikjson.schema.json > eikjson.d.ts",

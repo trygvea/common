@@ -41,7 +41,7 @@ test('ReadFile() - Set a value on the "etag" argument on the constructor', (t) =
 test('ReadFile() - Set a Readable stream as value on the .stream property', (t) => {
     const obj = new ReadFile();
     obj.stream = new Readable();
-    t.true(
+    t.ok(
         obj.stream instanceof Readable,
         '.stream should be value set on .stream',
     );
