@@ -55,7 +55,7 @@
     "express": "4.17.1",
     "fastify": "3.24.1",
     "json-schema-to-typescript": "10.1.5",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "semantic-release": "18.0.1",
     "stoppable": "1.1.0",
     "tap": "15.1.5",
