@@ -1,0 +1,19 @@
+{
+  "name": "@eik/common-schemas",
+  "version": "1.0.0",
+  "description": "Shared schemas or something",
+  "main": "index.js",
+  "scripts": {
+    "schema:types": "json2ts eikjson.schema.json > eikjson.d.ts",
+    "schema:outdated": "npm run schema:types && git diff --exit-code HEAD:eikjson.d.ts eikjson.d.ts",
+    "typecheck": "tsc",
+    "prepublish": "npm run typecheck"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.11.0",
+    "ajv-formats": "^2.1.1",
+    "semver": "^7.3.7",
+    "validate-npm-package-name": "^4.0.0"
+  }
+}

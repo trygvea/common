@@ -1,64 +1,18 @@
 {
-  "name": "@eik/common",
-  "version": "3.0.1",
-  "description": "Common utilities for Eik modules",
-  "main": "lib/index.js",
-  "types": "types/index.d.ts",
-  "files": [
-    "CHANGELOG.md",
-    "package.json",
-    "lib",
-    "types",
-    "eikjson.d.ts"
+  "name": "common",
+  "workspaces": [
+    "packages/validators",
+    "packages/helpers",
+    "packages/classes",
+    "packages/schemas"
   ],
   "scripts": {
-    "test": "tap  --no-check-coverage",
-    "lint:fix": "eslint --fix .",
-    "lint": "eslint .",
-    "schema:types": "json2ts lib/schemas/eikjson.schema.json > eikjson.d.ts",
-    "schema:outdated": "npm run schema:types && git diff --exit-code HEAD:eikjson.d.ts eikjson.d.ts",
-    "style:check": "prettier -c .",
-    "style:format": "prettier -w .",
-    "typecheck": "tsc",
-    "prepublish": "npm run typecheck"
+    "test": "tap --debug"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eik-lib/common.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/eik-lib/common/issues"
-  },
-  "homepage": "https://github.com/eik-lib/common#readme",
   "dependencies": {
-    "ajv": "^8.6.2",
-    "ajv-formats": "^2.1.0",
-    "glob": "^8.0.0",
-    "is-glob": "^4.0.1",
-    "mime-types": "^2.1.29",
-    "node-fetch": "^2.6.1",
-    "semver": "^7.0.0",
-    "validate-npm-package-name": "^4.0.0"
+    "node-fetch": "^3.2.7"
   },
   "devDependencies": {
-    "@hapi/hapi": "20.2.2",
-    "@semantic-release/changelog": "6.0.1",
-    "@semantic-release/git": "10.0.1",
-    "eslint": "7.32.0",
-    "eslint-config-airbnb-base": "14.2.1",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "express": "4.18.1",
-    "fastify": "3.29.0",
-    "json-schema-to-typescript": "10.1.5",
-    "prettier": "2.7.1",
-    "semantic-release": "18.0.1",
-    "stoppable": "1.1.0",
-    "tap": "15.2.3",
-    "typescript": "4.7.4"
+    "tap": "^15.2.3"
   }
 }

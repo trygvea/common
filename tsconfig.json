@@ -1,16 +1,30 @@
 {
-  "compilerOptions": {
-    "lib": ["es2020", "dom"],
-    "module": "es2020",
-    "target": "es2020",
-    "resolveJsonModule": true,
-    "checkJs": true,
-    "allowJs": true,
-    "moduleResolution": "node",
-    "noEmit": false,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "types"
-  },
-  "include": ["lib"]
+    "compilerOptions": {
+        "lib": [
+            "es2020",
+            "dom"
+        ],
+        "module": "es2020",
+        "target": "es2020",
+        "resolveJsonModule": true,
+        "checkJs": true,
+        "allowJs": true,
+        "moduleResolution": "node",
+        "noEmit": false,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "outDir": "types"
+    },
+    "include": [
+        "lib",
+        "packages/validators/index.js",
+        "packages/helpers/type-slug.js",
+        "packages/helpers/config-store.js",
+        "packages/schemas/validation-error.js",
+        "packages/schemas/validate.js",
+        "packages/schemas/index.js",
+        "packages/schemas/assert.js",
+        "packages/classes/stream.js",
+        "packages/classes/custom-error.js"
+    ]
 }
