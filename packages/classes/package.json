@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Shared classes for all Eik packages",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "license": "ISC",
   "dependencies": {
     "mime-types": "^2.1.35"

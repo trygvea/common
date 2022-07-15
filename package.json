@@ -2,10 +2,10 @@
   "name": "common",
   "workspaces": [
     "packages/validators",
+    "packages/shared",
     "packages/helpers",
     "packages/classes",
-    "packages/schemas",
-    "packages/shared"
+    "packages/schemas"
   ],
   "scripts": {
     "test": "tap --debug"
