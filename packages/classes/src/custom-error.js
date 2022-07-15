@@ -1,4 +1,4 @@
-module.exports = class CustomError extends Error {
+class CustomError extends Error {
     /**
      * @param {string} message
      */
@@ -7,4 +7,6 @@ module.exports = class CustomError extends Error {
         this.name = this.constructor.name;
         Error.captureStackTrace(this, this.constructor);
     }
-};
+}
+
+module.exports = CustomError;

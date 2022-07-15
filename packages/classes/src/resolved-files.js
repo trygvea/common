@@ -2,11 +2,12 @@
  * @type {(value: unknown, message?: string) => asserts value}
  */
 const assert = require('assert');
-const LocalFileLocation = require('./local-file-location');
 const {
     removeLeadingSlash,
     removeTrailingSlash,
 } = require('@eik/common-helpers');
+
+const { LocalFileLocation } = require('../');
 
 const originalFiles = Symbol('files');
 

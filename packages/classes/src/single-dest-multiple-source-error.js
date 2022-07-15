@@ -1,6 +1,6 @@
-const CustomError = require('./custom-error');
+const { CustomError } = require('../');
 
-module.exports = class SingleDestMultipleSourcesError extends CustomError {
+class SingleDestMultipleSourcesError extends CustomError {
     /**
      * @param {string} destFilePath
      */
@@ -9,4 +9,6 @@ module.exports = class SingleDestMultipleSourcesError extends CustomError {
             `Cannot specify a single file destination for multiple source files. See '${destFilePath}'`,
         );
     }
-};
+}
+
+module.exports = SingleDestMultipleSourcesError;

@@ -5,17 +5,20 @@
  */
 const assert = require('assert');
 const { extname, join, isAbsolute } = require('path');
-const NoFilesMatchedError = require('./no-files-matched-error');
-const SingleDestMultipleSourcesError = require('./single-dest-multiple-source-error');
-const FileMapping = require('./file-mapping');
-const RemoteFileLocation = require('./remote-file-location');
-const schemas = require('../schemas');
+const {
+    RemoteFileLocation,
+    FileMapping,
+    SingleDestMultipleSourcesError,
+    NoFilesMatchedError,
+} = require('../');
+
+const schemas = require('../../schemas');
 
 const {
     typeSlug,
     removeTrailingSlash,
     resolveFiles,
-} = require('@eik/common-helpers');
+} = require('@eik/common-shared');
 
 const _config = Symbol('config');
 const _tokens = Symbol('tokens');
@@ -34,7 +37,7 @@ const normalizeFilesDefinition = (files) =>
  * @typedef {import ("../../eikjson").EikjsonSchema} EikjsonSchema
  */
 
-module.exports = class EikConfig {
+class EikConfig {
     /**
      * @param {EikjsonSchema?} configHash
      * @param {[string, string][]?} tokens
@@ -165,4 +168,6 @@ module.exports = class EikConfig {
             });
         });
     }
-};
+}
+
+module.exports = EikConfig;

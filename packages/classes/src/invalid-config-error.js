@@ -1,10 +1,12 @@
-const CustomError = require('./custom-error');
+const { CustomError } = require('../');
 
-module.exports = class InvalidConfigError extends CustomError {
+class InvalidConfigError extends CustomError {
     /**
      * @param {string} msg
      */
     constructor(msg) {
         super(`Eik config object was invalid: '${msg}'`);
     }
-};
+}
+
+module.exports = InvalidConfigError;

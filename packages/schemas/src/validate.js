@@ -25,6 +25,7 @@ const eikJSON = createValidator(eikJSONSchema, {
     removeAdditional: true,
     useDefaults: true,
 });
+
 const createNameValidator = (jsonSchemaValidator) => (value) => {
     const result = jsonSchemaValidator(value);
     if (!result.error) {
@@ -45,6 +46,7 @@ const createNameValidator = (jsonSchemaValidator) => (value) => {
     }
     return result;
 };
+
 const createVersionValidator = (jsonSchemaValidator) => (value) => {
     const result = jsonSchemaValidator(value);
     if (!result.error) {
@@ -78,11 +80,13 @@ const files = createValidator(eikJSONSchema.properties.files);
 const importMap = createValidator(eikJSONSchema.properties['import-map']);
 const out = createValidator(eikJSONSchema.properties.out);
 
-module.exports.eikJSON = eikJSON;
-module.exports.name = name;
-module.exports.version = version;
-module.exports.type = type;
-module.exports.server = server;
-module.exports.files = files;
-module.exports.importMap = importMap;
-module.exports.out = out;
+module.exports = {
+    eikJSON,
+    name,
+    version,
+    type,
+    server,
+    files,
+    importMap,
+    out,
+};

@@ -2,7 +2,7 @@ const { test } = require('tap');
 const fs = require('fs').promises;
 const { join } = require('path');
 const os = require('os');
-const configStore = require('@eik/common-helpers/config-store');
+const { configStore } = require('@eik/common-helpers');
 const { EikConfig } = require('@eik/common-classes');
 
 function mkdirTempDir() {

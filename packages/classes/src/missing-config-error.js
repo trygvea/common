@@ -1,10 +1,12 @@
-const CustomError = require('./custom-error');
+const { CustomError } = require('../');
 
-module.exports = class MissingConfigError extends CustomError {
+class MissingConfigError extends CustomError {
     /**
      * @param {string} dir
      */
     constructor(dir) {
         super(`No package.json or eik.json file found in: '${dir}'`);
     }
-};
+}
+
+module.exports = MissingConfigError;

@@ -4,7 +4,8 @@
     "packages/validators",
     "packages/helpers",
     "packages/classes",
-    "packages/schemas"
+    "packages/schemas",
+    "packages/shared"
   ],
   "scripts": {
     "test": "tap --debug"

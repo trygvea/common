@@ -10,6 +10,7 @@ const {
     importMap,
     out,
 } = require('./validate');
+
 const ValidationError = require('./validation-error');
 
 const assert = (validate, message) => (value) => {

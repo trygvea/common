@@ -1,8 +1,7 @@
 // @ts-check
-
-const schema = require('./eikjson.schema.json');
-const validate = require('./validate');
-const assert = require('./assert');
-const ValidationError = require('./validation-error');
+const schema = require('./src/eikjson.schema.json');
+const validate = require('./src/validate');
+const assert = require('./src/assert');
+const ValidationError = require('./src/validation-error');
 
 module.exports = { schema, validate, assert, ValidationError };

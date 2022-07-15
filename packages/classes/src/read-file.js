@@ -1,4 +1,4 @@
-const { isReadableStream } = require('../stream');
+const { isReadableStream } = require('@eik/common-shared');
 
 const ReadFile = class ReadFile {
     constructor({ mimeType = '', etag = '' } = {}) {
@@ -29,4 +29,5 @@ const ReadFile = class ReadFile {
         return 'ReadFile';
     }
 };
+
 module.exports = ReadFile;

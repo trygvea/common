@@ -2,7 +2,7 @@
 
 const { Readable } = require('stream');
 const { test } = require('tap');
-const ReadFile = require('@eik/common-classes/read-file');
+const { ReadFile } = require('@eik/common-classes');
 
 test('ReadFile() - Object type', (t) => {
     const obj = new ReadFile();

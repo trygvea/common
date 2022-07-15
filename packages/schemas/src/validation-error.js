@@ -1,5 +1,4 @@
 // @ts-check
-
 class ValidationError extends Error {
     /**
      * @param {string} message

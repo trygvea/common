@@ -1,5 +1,5 @@
 const tap = require('tap');
-const ResolvedFiles = require('@eik/common-classes/resolved-files');
+const { ResolvedFiles } = require('@eik/common-classes');
 
 tap.test('ResolvedFiles: iterator for ./my/file.js', (t) => {
     const subject = new ResolvedFiles(['./my/file.js', './my/file.css'], {

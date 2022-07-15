@@ -18,13 +18,13 @@
     "include": [
         "lib",
         "packages/validators/index.js",
-        "packages/helpers/type-slug.js",
-        "packages/helpers/config-store.js",
-        "packages/schemas/validation-error.js",
-        "packages/schemas/validate.js",
+        "packages/helpers/src/type-slug.js",
+        "packages/helpers/src/config-store.js",
+        "packages/schemas/src/validation-error.js",
+        "packages/schemas/src/validate.js",
         "packages/schemas/index.js",
-        "packages/schemas/assert.js",
-        "packages/classes/stream.js",
-        "packages/classes/custom-error.js"
+        "packages/schemas/src/assert.js",
+        "packages/shared/src/stream.js",
+        "packages/classes/src/custom-error.js"
     ]
 }

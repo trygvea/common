@@ -4,8 +4,7 @@
  * @type {(value: unknown, message?: string) => asserts value}
  */
 const assert = require('assert');
-const LocalFileLocation = require('./local-file-location');
-const RemoteFileLocation = require('./remote-file-location');
+const { LocalFileLocation, RemoteFileLocation } = require('../');
 
 /**
  * Class containing a local file system source location and remote server destination location for a file.

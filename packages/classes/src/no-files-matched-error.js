@@ -1,6 +1,6 @@
-const CustomError = require('./custom-error');
+const { CustomError } = require('../');
 
-module.exports = class NoFilesMatchedError extends CustomError {
+class NoFilesMatchedError extends CustomError {
     /**
      * @param {string} file
      */
@@ -8,4 +8,6 @@ module.exports = class NoFilesMatchedError extends CustomError {
         const message = `No files found for path: '${file}'`;
         super(message);
     }
-};
+}
+
+module.exports = NoFilesMatchedError;

@@ -1,5 +1,5 @@
 const tap = require('tap');
-const LocalFileLocation = require('@eik/common-classes/local-file-location');
+const { LocalFileLocation } = require('@eik/common-classes');
 
 tap.test('LocalFileLocation: .absolute for ./my/file.json', (t) => {
     const subject = new LocalFileLocation('./my/file.json', '/base/path');

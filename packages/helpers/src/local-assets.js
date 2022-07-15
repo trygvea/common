@@ -57,4 +57,5 @@ async function localAssets(app, rootEikDirectory = process.cwd()) {
         }
     });
 }
+
 module.exports = localAssets;
