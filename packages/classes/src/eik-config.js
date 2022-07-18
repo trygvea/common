@@ -16,9 +16,9 @@ const schemas = require('../../schemas');
 
 const {
     typeSlug,
-    removeTrailingSlash,
     resolveFiles,
-} = require('@eik/common-shared');
+    removeTrailingSlash,
+} = require('@eik/common-helpers');
 
 const _config = Symbol('config');
 const _tokens = Symbol('tokens');

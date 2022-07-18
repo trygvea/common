@@ -7,7 +7,7 @@ const {
     removeTrailingSlash,
 } = require('@eik/common-helpers');
 
-const { LocalFileLocation } = require('../');
+const LocalFileLocation = require('./local-file-location');
 
 const originalFiles = Symbol('files');
 

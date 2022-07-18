@@ -1,4 +1,4 @@
-const { CustomError } = require('../');
+const CustomError = require('./custom-error');
 
 class InvalidConfigError extends CustomError {
     /**

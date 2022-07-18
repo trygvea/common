@@ -1,4 +1,4 @@
-const { isReadableStream } = require('@eik/common-shared');
+const { isReadableStream } = require('@eik/common-helpers');
 
 const ReadFile = class ReadFile {
     constructor({ mimeType = '', etag = '' } = {}) {

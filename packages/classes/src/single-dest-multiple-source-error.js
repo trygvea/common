@@ -1,4 +1,4 @@
-const { CustomError } = require('../');
+const CustomError = require('./custom-error');
 
 class SingleDestMultipleSourcesError extends CustomError {
     /**

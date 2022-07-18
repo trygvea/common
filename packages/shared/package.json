@@ -1,7 +1,0 @@
-{
-  "name": "@eik/common-shared",
-  "version": "1.0.0",
-  "description": "Shared code for all Eik packages",
-  "main": "index.js",
-  "license": "ISC"
-}

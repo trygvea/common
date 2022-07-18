@@ -8,7 +8,7 @@ const {
     removeTrailingSlash,
     addLeadingSlash,
     removeLeadingSlash,
-} = require('./');
+} = require('../');
 
 const { ResolvedFiles } = require('@eik/common-classes');
 

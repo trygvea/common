@@ -4,23 +4,25 @@ const configStore = require('./src/config-store');
 const typeSlug = require('./src/type-slug');
 const typeTitle = require('./src/type-title');
 const resolveFiles = require('./src/resolve-files');
-
+const { isStream, isReadableStream } = require('./src/stream');
 const {
     addTrailingSlash,
     removeTrailingSlash,
     addLeadingSlash,
     removeLeadingSlash,
-} = require('@eik/common-shared');
+} = require('./src/path-slashes');
 
 module.exports = {
-    addLeadingSlash,
-    configStore,
     addTrailingSlash,
     removeTrailingSlash,
+    addLeadingSlash,
     removeLeadingSlash,
+    isStream,
+    isReadableStream,
     localAssets,
     getDefaults,
     resolveFiles,
+    configStore,
     typeSlug,
     typeTitle,
 };
