@@ -1,7 +1,7 @@
 'use strict';
 
 const tap = require('tap');
-const validators = require('@eik/common-validators');
+const validators = require('..');
 
 //
 // .origin()

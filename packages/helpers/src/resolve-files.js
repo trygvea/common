@@ -4,13 +4,12 @@ const { promisify } = require('util');
 const { extname, join, isAbsolute, basename, sep, normalize } = require('path');
 const isGlob = require('is-glob');
 const glob = promisify(require('glob'));
+const { ResolvedFiles } = require('@eik/common-classes');
 const {
     removeTrailingSlash,
     addLeadingSlash,
     removeLeadingSlash,
-} = require('../');
-
-const { ResolvedFiles } = require('@eik/common-classes');
+} = require('..');
 
 /**
  * Create a new path from a path string preceeding a glob or the whole path if no glob is found

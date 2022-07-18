@@ -2,8 +2,8 @@
 
 'use strict';
 
-const { configStore } = require('../');
 const { EikConfig } = require('@eik/common-classes');
+const { configStore } = require('..');
 
 /**
  * Sets up and returns an object containing a set of default values for the app context.
