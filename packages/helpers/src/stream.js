@@ -1,4 +1,4 @@
-'use strict';
+
 
 function isStream(stream) {
     return (

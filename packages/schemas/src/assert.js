@@ -9,9 +9,9 @@ const {
     files,
     importMap,
     out,
-} = require('./validate');
+} = require('./validate.js');
 
-const ValidationError = require('./validation-error');
+const ValidationError = require('./validation-error.js');
 
 const assert = (validate, message) => (value) => {
     const valid = validate(value);

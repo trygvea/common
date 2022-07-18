@@ -7,20 +7,20 @@
     "packages/schemas"
   ],
   "scripts": {
-    "test": "tap --debug",
+    "test": "tap --no-check-coverage",
+    "test:snapshots:update": "tap --snapshot",
+    "lint:fix": "eslint --fix .",
     "lint": "eslint ."
   },
-  "dependencies": {
-    "node-fetch": "^3.2.7"
-  },
   "devDependencies": {
-    "@eik/common-helpers": "file:packages/helpers",
-    "@types/node": "^18.0.6",
+    "@types/node": "18.0.6",
     "eslint": "7.32.0",
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.2.1",
-    "tap": "^15.2.3"
+    "@babel/eslint-parser": "7.16.5",
+    "prettier": "2.5.1",
+    "tap": "15.2.3"
   }
 }

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 
-'use strict';
+
 
 import scrollIntoView from 'scroll-into-view-if-needed';
 

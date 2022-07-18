@@ -7,18 +7,17 @@ const assert = require('assert');
 const { extname, join, isAbsolute } = require('path');
 const {
     typeSlug,
-    resolveFiles,
     removeTrailingSlash,
 } = require('@eik/common-helpers');
 
-const {
-    RemoteFileLocation,
-    FileMapping,
-    SingleDestMultipleSourcesError,
-    NoFilesMatchedError,
-} = require('..');
+const schemas = require('@eik/common-schemas');
 
-const schemas = require('../../schemas');
+const resolveFiles = require('./resolve-files.js');
+
+const RemoteFileLocation = require('./remote-file-location.js');
+const FileMapping = require('./file-mapping.js');
+const SingleDestMultipleSourcesError = require('./single-dest-multiple-source-error.js');
+const NoFilesMatchedError = require('./no-files-matched-error.js');
 
 const _config = Symbol('config');
 const _tokens = Symbol('tokens');

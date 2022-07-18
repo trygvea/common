@@ -1,4 +1,4 @@
-const CustomError = require('./custom-error');
+const CustomError = require('./custom-error.js');
 
 class NoFilesMatchedError extends CustomError {
     /**
