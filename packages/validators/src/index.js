@@ -1,5 +1,3 @@
-
-
 const semver = require('semver');
 const npmPkg = require('validate-npm-package-name');
 

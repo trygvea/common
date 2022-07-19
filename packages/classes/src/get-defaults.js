@@ -1,7 +1,5 @@
 // @ts-check
 
-
-
 const EikConfig = require('./eik-config.js');
 const configStore = require('./config-store.js');
 

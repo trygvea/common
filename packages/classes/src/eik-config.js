@@ -5,10 +5,7 @@
  */
 const assert = require('assert');
 const { extname, join, isAbsolute } = require('path');
-const {
-    typeSlug,
-    removeTrailingSlash,
-} = require('@eik/common-helpers');
+const { typeSlug, removeTrailingSlash } = require('@eik/common-helpers');
 
 const schemas = require('@eik/common-schemas');
 

@@ -1,5 +1,3 @@
-
-
 function isStream(stream) {
     return (
         stream !== null &&

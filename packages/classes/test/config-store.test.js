@@ -4,7 +4,7 @@ const { join } = require('path');
 const os = require('os');
 
 const EikConfig = require('../src/eik-config.js');
-const configStore = require('../src/config-store.js')
+const configStore = require('../src/config-store.js');
 
 function mkdirTempDir() {
     return fs.mkdtemp(join(os.tmpdir(), 'eik-config'));
