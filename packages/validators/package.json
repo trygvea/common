@@ -5,8 +5,12 @@
   "main": "src/index.js",
   "scripts": {
     "test": "tap --no-check-coverage",
+    "test:snapshots:update": "tap --snapshot",
     "lint:fix": "eslint --fix .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "style:check": "prettier -c .",
+    "style:format": "prettier -w .",
+    "typecheck": "tsc"
   },
   "license": "ISC",
   "dependencies": {
