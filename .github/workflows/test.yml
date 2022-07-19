@@ -37,7 +37,7 @@ jobs:
           CI: true
       - name: check eik json schema is up to date
         run: |
-          npm run schema:outdated --workspaces
+          npm run schema:outdated --workspace=schemas
         env:
           CI: true
       - name: run tests
