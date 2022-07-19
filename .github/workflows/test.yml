@@ -17,29 +17,29 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install dependencies
         run: |
-          npm install
+          npm install --workspaces
         env:
           CI: true
       - name: lint files
         run: |
-          npm run lint
+          npm run lint --workspaces
         env:
           CI: true
       - name: style check files
         run: |
-          npm run style:check
+          npm run style:check --workspaces
         env:
           CI: true
       - name: typecheck files
         run: |
-          npm run typecheck
+          npm run typecheck --workspaces
         env:
           CI: true
       - name: check eik json schema is up to date
         run: |
-          npm run schema:outdated
+          npm run schema:outdated --workspaces
         env:
           CI: true
       - name: run tests
         run: |
-          npm test
+          npm test --workspaces
