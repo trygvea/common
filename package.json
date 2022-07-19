@@ -10,7 +10,10 @@
     "test": "tap --no-check-coverage",
     "test:snapshots:update": "tap --snapshot",
     "lint:fix": "eslint --fix .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "style:check": "prettier -c .",
+    "style:format": "prettier -w .",
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@types/node": "18.0.6",
@@ -21,6 +24,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "@babel/eslint-parser": "7.16.5",
     "prettier": "2.5.1",
-    "tap": "15.2.3"
+    "tap": "15.2.3",
+    "typescript": "4.7.4"
   }
 }
