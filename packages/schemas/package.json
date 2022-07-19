@@ -4,6 +4,8 @@
   "description": "Shared schemas or something",
   "main": "src/index.js",
   "scripts": {
+    "style:check": "prettier -c .",
+    "style:format": "prettier -w .",
     "schema:types": "json2ts ./src/eikjson.schema.json > eikjson.d.ts",
     "schema:outdated": "npm run schema:types && git diff --exit-code HEAD:eikjson.d.ts eikjson.d.ts",
     "typecheck": "tsc",
