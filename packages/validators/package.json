@@ -11,9 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "semver": "7.3.7",
-    "validate-npm-package-name": "4.0.0"
-  },
-  "devDependencies": {
+    "validate-npm-package-name": "4.0.0",
     "tap": "15.2.3"
   }
 }

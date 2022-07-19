@@ -9,7 +9,7 @@
     "lint": "eslint ."
   },
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "tap": "15.2.3"
   }
 }
