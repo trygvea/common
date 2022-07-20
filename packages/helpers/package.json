@@ -1,7 +1,7 @@
 {
   "name": "@eik/common-helpers",
   "version": "1.0.0",
-  "description": "Internal helper methods",
+  "description": "Shared helper methods for Eik packages",
   "main": "index.js",
   "scripts": {
     "test": "echo No tests",

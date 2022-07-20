@@ -1,7 +1,7 @@
 {
   "name": "@eik/common-schemas",
   "version": "1.0.0",
-  "description": "Shared schemas or something",
+  "description": "Shared schema logic for Eik packages",
   "main": "src/index.js",
   "scripts": {
     "style:check": "prettier -c .",
