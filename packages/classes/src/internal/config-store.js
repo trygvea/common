@@ -2,7 +2,7 @@ const { readFileSync, writeFileSync } = require('fs');
 const { join } = require('path');
 const homedir = require('os').homedir();
 
-const EikConfig = require('./eik-config.js');
+const EikConfig = require('../eik-config.js');
 const MissingConfigError = require('./missing-config-error.js');
 const MultipleConfigSourcesError = require('./multiple-config-sources-error.js');
 const InvalidConfigError = require('./invalid-config-error.js');

@@ -1,5 +1,5 @@
 const tap = require('tap');
-const LocalFileLocation = require('../../src/local-file-location.js');
+const LocalFileLocation = require('../../src/internal/local-file-location.js');
 
 tap.test('LocalFileLocation: .absolute for ./my/file.json', (t) => {
     const subject = new LocalFileLocation('./my/file.json', '/base/path');

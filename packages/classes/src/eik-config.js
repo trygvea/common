@@ -9,12 +9,12 @@ const { typeSlug, removeTrailingSlash } = require('@eik/common-helpers');
 
 const schemas = require('@eik/common-schemas');
 
-const resolveFiles = require('./resolve-files.js');
+const resolveFiles = require('./internal/resolve-files.js');
 
-const RemoteFileLocation = require('./remote-file-location.js');
-const FileMapping = require('./file-mapping.js');
-const SingleDestMultipleSourcesError = require('./single-dest-multiple-source-error.js');
-const NoFilesMatchedError = require('./no-files-matched-error.js');
+const RemoteFileLocation = require('./internal/remote-file-location.js');
+const FileMapping = require('./internal/file-mapping.js');
+const SingleDestMultipleSourcesError = require('./internal/single-dest-multiple-source-error.js');
+const NoFilesMatchedError = require('./internal/no-files-matched-error.js');
 
 const _config = Symbol('config');
 const _tokens = Symbol('tokens');

@@ -1,6 +1,6 @@
 // @ts-check
 
-const EikConfig = require('./eik-config.js');
+const EikConfig = require('../eik-config.js');
 const configStore = require('./config-store.js');
 
 /**
@@ -9,7 +9,7 @@ const configStore = require('./config-store.js');
  *
  * @param {string} cwd The current working directory
  *
- * @returns {import("../../classes/src/eik-config.js")} EikConfig
+ * @returns {import("../../../classes/src/eik-config.js")} EikConfig
  */
 function getDefaults(cwd) {
     try {

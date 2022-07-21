@@ -2,9 +2,9 @@ const { test } = require('tap');
 const { join } = require('path');
 
 const EikConfig = require('../../src/eik-config.js');
-const FileMapping = require('../../src/file-mapping.js');
-const LocalFileLocation = require('../../src/local-file-location.js');
-const RemoteFileLocation = require('../../src/remote-file-location.js');
+const FileMapping = require('../../src/internal/file-mapping.js');
+const LocalFileLocation = require('../../src/internal/local-file-location.js');
+const RemoteFileLocation = require('../../src/internal/remote-file-location.js');
 
 const validEikConfig = {
     name: 'pizza',
