@@ -18,7 +18,7 @@
     "glob": "8.0.3",
     "node-fetch": "2.6.6",
     "is-glob": "4.0.3",
-    "@eik/common-helpers": "1.0.0",
+    "@eik/common-utils": "1.0.0",
     "@eik/common-schemas": "1.0.0"
   },
   "devDependencies": {

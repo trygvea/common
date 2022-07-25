@@ -9,7 +9,7 @@ const {
     removeTrailingSlash,
     addLeadingSlash,
     removeLeadingSlash,
-} = require('@eik/common-helpers');
+} = require('@eik/common-utils');
 const ResolvedFiles = require('./resolved-files.js');
 
 /**

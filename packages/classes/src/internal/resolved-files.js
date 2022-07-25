@@ -5,7 +5,7 @@ const assert = require('assert');
 const {
     removeLeadingSlash,
     removeTrailingSlash,
-} = require('@eik/common-helpers');
+} = require('@eik/common-utils');
 
 const LocalFileLocation = require('./local-file-location');
 
