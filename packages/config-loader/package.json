@@ -1,7 +1,7 @@
 {
   "name": "@eik/common-config-loader",
   "version": "1.0.0",
-  "description": "Shared classes for Eik packages",
+  "description": "Shared config loader for Eik packages",
   "main": "index.js",
   "scripts": {
     "test": "tap --no-check-coverage",
