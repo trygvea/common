@@ -1,7 +1,7 @@
 {
   "name": "@eik/common",
   "workspaces": [
-    "packages/classes",
+    "packages/config-loader",
     "packages/utils",
     "packages/schemas",
     "packages/validators"

@@ -10,7 +10,7 @@ const {
     addLeadingSlash,
     removeLeadingSlash,
 } = require('@eik/common-utils');
-const ResolvedFiles = require('./resolved-files.js');
+const ResolvedFiles = require('../classes/resolved-files.js');
 
 /**
  * Create a new path from a path string preceeding a glob or the whole path if no glob is found

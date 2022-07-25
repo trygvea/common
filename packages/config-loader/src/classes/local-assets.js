@@ -5,7 +5,7 @@
  */
 const assert = require('assert');
 const fs = require('fs');
-const configStore = require('./config-store.js');
+const configStore = require('../config-store.js');
 
 /**
  * Sets up asset routes for local development. Mounted paths match those on Eik server and values are read from projects eik.json file.

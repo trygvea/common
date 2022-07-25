@@ -1,5 +1,5 @@
 const tap = require('tap');
-const { validate } = require('../src/index.js');
+const { validate } = require('../index.js');
 
 tap.test('validate basic eik JSON file', (t) => {
     const result = validate.eikJSON({

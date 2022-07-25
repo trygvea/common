@@ -2,7 +2,7 @@ const fs = require('fs');
 const os = require('os');
 const { join, basename } = require('path');
 const tap = require('tap');
-const resolveFiles = require('../src/internal/resolve-files.js');
+const resolveFiles = require('../src/utils/resolve-files.js');
 
 // then integrate the resolve-files function into eik-config.
 

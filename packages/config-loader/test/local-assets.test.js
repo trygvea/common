@@ -4,7 +4,7 @@ const Hapi = require('@hapi/hapi');
 const { test } = require('tap');
 const fetch = require('node-fetch');
 const stoppable = require('stoppable');
-const localAssets = require('../src/internal/local-assets.js');
+const localAssets = require('../src/classes/local-assets.js');
 
 class Server {
     constructor() {

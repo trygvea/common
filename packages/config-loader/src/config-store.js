@@ -2,10 +2,10 @@ const { readFileSync, writeFileSync } = require('fs');
 const { join } = require('path');
 const homedir = require('os').homedir();
 
-const EikConfig = require('../eik-config.js');
-const MissingConfigError = require('./missing-config-error.js');
-const MultipleConfigSourcesError = require('./multiple-config-sources-error.js');
-const InvalidConfigError = require('./invalid-config-error.js');
+const EikConfig = require('./eik-config.js');
+const MissingConfigError = require('./errors/missing-config-error.js');
+const MultipleConfigSourcesError = require('./errors/multiple-config-sources-error.js');
+const InvalidConfigError = require('./errors/invalid-config-error.js');
 
 /**
  * Read a file at a given path and parse it

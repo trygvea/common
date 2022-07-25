@@ -1,12 +1,12 @@
-const typeSlug = require('./src/type-slug');
-const typeTitle = require('./src/type-title');
-const { isStream, isReadableStream } = require('./src/stream');
+const typeSlug = require('./src/type-slug.js');
+const typeTitle = require('./src/type-title.js');
+const { isStream, isReadableStream } = require('./src/stream.js');
 const {
     addTrailingSlash,
     removeTrailingSlash,
     addLeadingSlash,
     removeLeadingSlash,
-} = require('./src/path-slashes');
+} = require('./src/path-slashes.js');
 
 module.exports = {
     addTrailingSlash,

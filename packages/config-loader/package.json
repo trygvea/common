@@ -1,5 +1,5 @@
 {
-  "name": "@eik/common-classes",
+  "name": "@eik/common-config-loader",
   "version": "1.0.0",
   "description": "Shared classes for Eik packages",
   "main": "index.js",
