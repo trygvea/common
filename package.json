@@ -1,9 +1,9 @@
 {
   "name": "@eik/common",
   "workspaces": [
-    "packages/validators",
-    "packages/helpers",
     "packages/classes",
-    "packages/schemas"
+    "packages/utils",
+    "packages/schemas",
+    "packages/validators"
   ]
 }
