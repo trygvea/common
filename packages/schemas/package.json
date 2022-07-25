@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Shared schema logic for Eik packages",
   "main": "index.js",
+  "types": "eikjson.d.ts",
   "scripts": {
     "style:check": "prettier -c .",
     "style:format": "prettier -w .",
