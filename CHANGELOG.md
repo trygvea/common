@@ -1,3 +1,10 @@
+# [4.0.0-next.7](https://github.com/eik-lib/common/compare/v4.0.0-next.6...v4.0.0-next.7) (2022-07-26)
+
+
+### Bug Fixes
+
+* run semantic release in each package ([84ace0c](https://github.com/eik-lib/common/commit/84ace0c3359b42bf20461318afc2ef67faaba11b))
+
 # [4.0.0-next.6](https://github.com/eik-lib/common/compare/v4.0.0-next.5...v4.0.0-next.6) (2022-07-26)
 
 
