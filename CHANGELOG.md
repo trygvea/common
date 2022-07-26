@@ -1,3 +1,10 @@
+# [4.0.0-next.6](https://github.com/eik-lib/common/compare/v4.0.0-next.5...v4.0.0-next.6) (2022-07-26)
+
+
+### Bug Fixes
+
+* lint ([edc595f](https://github.com/eik-lib/common/commit/edc595f6f4baf465e736bed8a4cb2e0eb8efe382))
+
 # [4.0.0-next.5](https://github.com/eik-lib/common/compare/v4.0.0-next.4...v4.0.0-next.5) (2022-07-26)
 
 
