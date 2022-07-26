@@ -1,6 +1,6 @@
 {
   "name": "@eik/common-config-loader",
-  "version": "1.0.0",
+  "version": "0.0.1-next.2",
   "description": "Shared config loader for Eik packages",
   "main": "index.js",
   "scripts": {
@@ -12,10 +12,10 @@
     "style:format": "prettier -w .",
     "typecheck": "tsc"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@eik/common-schemas": "1.0.0",
-    "@eik/common-utils": "1.0.0",
+    "@eik/common-schemas": "0.0.1-next.1",
+    "@eik/common-utils": "0.0.1-next.1",
     "glob": "8.0.3",
     "is-glob": "4.0.3",
     "mime-types": "2.1.35",

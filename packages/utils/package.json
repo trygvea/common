@@ -1,6 +1,6 @@
 {
   "name": "@eik/common-utils",
-  "version": "1.0.0",
+  "version": "0.0.1-next.1",
   "description": "Shared utils shared between for Eik packages",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "style:format": "prettier -w .",
     "typecheck": "tsc"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/eslint-parser": "7.16.5",
     "@semantic-release/changelog": "^6.0.1",

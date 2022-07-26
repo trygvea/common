@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-      - alpha
-      - beta
       - next
 
 jobs:
@@ -63,7 +61,7 @@ jobs:
           npm install --workspaces
       - name: npx semantic-release
         run: |
-          npx semantic-release --workspaces
+          npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

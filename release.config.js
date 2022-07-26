@@ -7,6 +7,28 @@ module.exports = {
       '@semantic-release/npm',
       {
         tarballDir: 'release',
+        pkgRoot: 'packages/config-loader',
+      },
+    ],
+    [
+      '@semantic-release/npm',
+      {
+        tarballDir: 'release',
+        pkgRoot: 'packages/schemas',
+      },
+    ],
+    [
+      '@semantic-release/npm',
+      {
+        tarballDir: 'release',
+        pkgRoot: 'packages/utils',
+      },
+    ],
+    [
+      '@semantic-release/npm',
+      {
+        tarballDir: 'release',
+        pkgRoot: 'packages/validators',
       },
     ],
     [
@@ -15,13 +37,21 @@ module.exports = {
         assets: 'release/*.tgz',
       },
     ],
-    '@semantic-release/git',
+    [
+      '@semantic-release/git',
+      {
+        assets: [
+          'packages/config-loader',
+          'packages/schemas',
+          'packages/utils',
+          'packages/validators',
+        ],
+      },
+    ]
   ],
   preset: 'angular',
   branches: [
     { name: 'master' },
-    { name: 'alpha', prerelease: true },
-    { name: 'beta', prerelease: true },
     { name: 'next', prerelease: true },
   ],
 };
