@@ -1,3 +1,11 @@
+# [4.0.0-next.5](https://github.com/eik-lib/common/compare/v4.0.0-next.4...v4.0.0-next.5) (2022-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency glob to v8 ([#225](https://github.com/eik-lib/common/issues/225)) ([fd01a56](https://github.com/eik-lib/common/commit/fd01a566b404164bdc847cc7a1803b124e131e41))
+* **deps:** update dependency validate-npm-package-name to v4 ([#222](https://github.com/eik-lib/common/issues/222)) ([c3721ab](https://github.com/eik-lib/common/commit/c3721abf058c93d4e500945c3c014c748c1f2acd))
+
 ## [3.0.1](https://github.com/eik-lib/common/compare/v3.0.0...v3.0.1) (2022-05-04)
 
 
