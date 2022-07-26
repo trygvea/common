@@ -1,0 +1,40 @@
+{
+  "name": "@eik/common-config-loader",
+  "version": "1.0.0",
+  "description": "Shared config loader for Eik packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap --no-check-coverage",
+    "test:snapshots:update": "tap --snapshot",
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint .",
+    "style:check": "prettier -c .",
+    "style:format": "prettier -w .",
+    "typecheck": "tsc"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "mime-types": "2.1.35",
+    "glob": "8.0.3",
+    "node-fetch": "2.6.6",
+    "is-glob": "4.0.3",
+    "@eik/common-utils": "1.0.0",
+    "@eik/common-schemas": "1.0.0"
+  },
+  "devDependencies": {
+    "@hapi/hapi": "20.2.2",
+    "express": "4.18.1",
+    "fastify": "3.29.0",
+    "stoppable": "1.1.0",
+    "@types/node": "18.0.6",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "@babel/eslint-parser": "7.16.5",
+    "prettier": "2.5.1",
+    "tap": "15.2.3",
+    "typescript": "4.7.4"
+  }
+}
