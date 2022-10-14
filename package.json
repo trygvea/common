@@ -41,7 +41,7 @@
     "mime-types": "^2.1.29",
     "node-fetch": "^2.6.1",
     "semver": "^7.0.0",
-    "validate-npm-package-name": "^4.0.0"
+    "validate-npm-package-name": "^5.0.0"
   },
   "devDependencies": {
     "@hapi/hapi": "20.2.2",
