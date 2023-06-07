@@ -388,7 +388,7 @@ test('mappings - files is an object - mapped to folder - relative path to folder
     t.equal(
         mappings[0].destination.url.href,
         'http://server/pkg/pizza/0.0.0/folder/styles.css',
-    );    
+    );
     t.equal(mappings[1].source.relative, 'client.js');
     t.match(mappings[1].source.absolute, 'fixtures/folder/client.js');
     t.equal(mappings[1].destination.packagePathname, '/pkg/pizza/0.0.0');
