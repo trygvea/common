@@ -3,7 +3,7 @@ const npmPkg = require('validate-npm-package-name');
 
 module.exports = {
     origin: (value) => {
-        if (new RegExp('^https?://[a-zA-Z0-9-_./]+(:[0-9]+)?').test(value)) {
+        if (/^https?:\/\/[a-zA-Z0-9-_./]+(:[0-9]+)?/.test(value)) {
             return value.toLowerCase();
         }
         throw new Error('Parameter "origin" is not valid');
