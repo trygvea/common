@@ -10,6 +10,7 @@
         "checkJs": true,
         "allowJs": true,
         "moduleResolution": "node",
+        "skipLibCheck": true,
         "noEmit": false,
         "declaration": true,
         "emitDeclarationOnly": true,
