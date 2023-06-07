@@ -41,9 +41,10 @@ tap.test(
         }
         const asArray = Array.from(resolved[0]);
         const { relative, absolute, basePath } = asArray[0];
+
         t.equal(
             relative,
-            'client.js',
+            'styles.css',
             '.relative should not include .basePath',
         );
         t.equal(
@@ -193,7 +194,7 @@ tap.test(
         const { relative, absolute, basePath } = asArray[0];
         t.equal(
             relative,
-            'client.js',
+            'styles.css',
             '.relative should not include .basePath',
         );
         t.equal(

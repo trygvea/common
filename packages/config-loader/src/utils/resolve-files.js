@@ -1,10 +1,9 @@
 /* eslint-disable no-continue */
 
-const { promisify } = require('util');
 const { extname, join, isAbsolute, basename, sep, normalize } = require('path');
 const isGlob = require('is-glob');
-const glob = promisify(require('glob'));
-// const { ResolvedFiles } = require('../index.js');
+const { glob } = require('glob');
+
 const {
     removeTrailingSlash,
     addLeadingSlash,
