@@ -1,186 +1,21 @@
 # Eik Commons
 
-This package contains common utilities and schemas
+Note: this module is for internal eik-lib usage and may change at any time without notice.
 
 ## APIs
 
-### schemas
+### common-config-loader
 
-#### eik.json
+Eik configuration definition and functions for loading eik configuration files, see [config-loader](./packages/config-loader/README.md)
 
-Importing schemas
+### common-schemas
 
-```js
-const { schemas, assert } = require('@eik/common');
-```
+Schema and validators for the eik.json schema used by eik configuration, see [schemas](./packages/schemas/README.md)
 
-Validating an `eik.json` file
+### common-utils
 
-```js
-const { error, value } = schemas.validate.eikJSON({
-    name: 'my-app',
-    version: '1.0.0',
-    server: 'http://eik-server',
-    files: [],
-});
+Utilities used by other eik-lib packages, see [utils](./packages/utils/README.md)
 
-//or
+### common-validators
 
-assert.eikJSON({
-    name: 'my-app',
-    version: '1.0.0',
-    server: 'http://eik-server',
-    files: [],
-});
-```
-
-Using individual schema validators
-
-##### name
-
-```js
-const { error, value } = schemas.validate.name('my-app');
-
-// or
-
-assert.name('my-app');
-```
-
-##### version
-
-```js
-const { error, value } = schemas.validate.version('1.0.0');
-
-// or
-
-assert.version('1.0.0');
-```
-
-##### type
-
-```js
-const { error, value } = schemas.validate.type('package');
-
-// or
-
-assert.type('package');
-```
-
-##### server
-
-```js
-const { error, value } = schemas.validate.server('http://myeikserver.com');
-
-// or
-
-assert.server('http://myeikserver.com');
-```
-
-##### files
-
-```js
-const { error, value } = schemas.validate.files({
-    './index.js': '/path/to/file.js',
-});
-
-// or
-
-assert.files({
-    './index.js': '/path/to/file.js',
-});
-```
-
-##### import map
-
-```js
-const { error, value } = schemas.validate.importMap(
-    'http://meserver.com/map.json',
-);
-
-const { error, value } = schemas.validate.importMap([
-    'http://meserver.com/map1.json',
-    'http://meserver.com/map2.json',
-]);
-
-// or
-
-assert.importMap([
-    'http://meserver.com/map1.json',
-    'http://meserver.com/map2.json',
-]);
-```
-
-##### out
-
-```js
-const { error, value } = schemas.validate.out('./.eik');
-
-// or
-
-assert.out('./.eik');
-```
-
-### helpers
-
-#### localAssets
-
-A function to help development by mounting development routes to an Express.js or Fastify app based on values defined in `eik.json`
-
-```js
-const express = require('express');
-const { helpers } = require('@eik/common');
-const app = express();
-await helpers.localAssets(app);
-```
-
-For an `eik.json` file such as
-
-```json
-{
-    "name": "my-app",
-    "version": "1.0.0",
-    "server": "https://assets.myeikserver.com",
-    "files": {
-        "esm.js": "./assets/esm.js",
-        "esm.css": "./assets/esm.css",
-        "/": "./assets/**/*.map"
-    }
-}
-```
-
-A number of routes would be mounted into your app.
-
-```
-/pkg/my-app/1.0.0/esm.js
-/pkg/my-app/1.0.0/esm.css
-/pkg/my-app/1.0.0/esm.js.map
-/pkg/my-app/1.0.0/esm.css.map
-```
-
-#### packageURL
-
-This helper function can be used to build URLs for given entries in an `eik.json` files section.
-
-Given the following `eik.json` file:
-
-```json
-{
-    "name": "my-app",
-    "version": "1.0.0",
-    "server": "https://assets.myeikserver.com",
-    "files": {
-        "esm.js": "./assets/esm.js",
-        "esm.css": "./assets/esm.css",
-        "/": "./assets/**/*.map"
-    }
-}
-```
-
-and the following call to packageURL
-
-```js
-const { helpers } = require('@eik/common');
-const url = await helpers.packageURL('esm.js');
-```
-
-The URL returned will be `https://assets.myeikserver.com/pkg/my-app/1.0.0/esm.js`
+Misc validators/converters used for validating eik config, see [validators](./packages/validators/README.md)
