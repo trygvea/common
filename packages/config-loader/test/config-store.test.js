@@ -159,7 +159,7 @@ test('invalid json error', (t) => {
     } catch (e) {
         t.equal(
             e.message,
-            'Unexpected token \'o\', "not json" is not valid JSON',
+            'Unexpected token o in JSON at position 1',
         );
     }
     t.end();
