@@ -1,6 +1,7 @@
 const typeSlug = require('./src/type-slug.js');
 const typeTitle = require('./src/type-title.js');
 const { isStream, isReadableStream } = require('./src/stream.js');
+const ReadFile = require('./src/read-file.js');
 const {
     addTrailingSlash,
     removeTrailingSlash,
@@ -17,4 +18,5 @@ module.exports = {
     isReadableStream,
     typeSlug,
     typeTitle,
+    ReadFile,
 };

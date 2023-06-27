@@ -1,9 +1,13 @@
 # @eik/common-utils
 
-Minor utilities used by other eik-lib packages.
+Utilities used by other eik-lib packages.
 
 > **Note**
 this package is for internal eik-lib usage and the api may change at any time without notice.
+
+## ReadFile
+
+A convenience wrapper of a node stream with attributes `mimeType` and `etag`.
 
 ## Handling leading and trailing slashes
 

@@ -1,6 +1,6 @@
 const { Readable } = require('stream');
 const { test } = require('tap');
-const ReadFile = require('../src/classes/read-file.js');
+const ReadFile = require('../src/read-file.js');
 
 test('ReadFile() - Object type', (t) => {
     const obj = new ReadFile();

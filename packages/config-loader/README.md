@@ -35,11 +35,6 @@ const { getDefaults } = require('@eik/common-config-loader');
 const config: EikConfig = getDefaults("/path/to/my/app");
 ```
 
-## ReadFile
-
-A convenience wrapper of a node stream with attributes `mimeType` and `etag`.
-
-
 ## localAssets
 
 A function to help development by mounting development routes to an Express.js or Fastify app based on values defined in `eik.json`
