@@ -3,7 +3,7 @@
 Schema and validators for the eik.json schema used by eik configuration.
 
 > **Note**
-this package is for internal eik-lib usage and the api may change at any time without notice.
+> this package is for internal eik-lib usage and the api may change at any time without notice.
 
 ## Importing and validating schemas
 
@@ -120,4 +120,3 @@ assert.out('./.eik');
 ## ValidationError
 
 The `ValidationError` error is thrown when a validation fails.
-

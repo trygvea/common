@@ -47,11 +47,8 @@ module.exports = {
           'packages/validators',
         ],
       },
-    ]
+    ],
   ],
   preset: 'angular',
-  branches: [
-    { name: 'master' },
-    { name: 'next', prerelease: true },
-  ],
+  branches: [{ name: 'master' }, { name: 'next', prerelease: true }],
 };

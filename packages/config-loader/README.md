@@ -1,9 +1,9 @@
 # @eik/common-config-loader
 
-Eik configuration definition and functions for loading eik configuration files. 
+Eik configuration definition and functions for loading eik configuration files.
 
 > **Note**
-this package is for internal eik-lib usage and the api may change at any time without notice.
+> this package is for internal eik-lib usage and the api may change at any time without notice.
 
 ## EikConfig
 
@@ -16,15 +16,17 @@ Support for reading configuration files.
 Configuration are fetched from the app's eik.json or package.json file, or well as from .eikrc, if present in the users home directory. Only one configuration source is supported.
 
 Usage:
+
 ```js
 const { configStore } = require('@eik/common-config-loader');
-const config: EikConfig = configStore.findInDirectory("/path/to/my/app");
+const config: EikConfig = configStore.findInDirectory('/path/to/my/app');
 ```
 
-The `findInDirectory` method may throw 
-* `MissingConfigError` if no configuration files are found.
-* `InvalidConfigError` if the configuration is not valid
-* `MultipleConfigSourcesError` if multiple configuration sources are found
+The `findInDirectory` method may throw
+
+-   `MissingConfigError` if no configuration files are found.
+-   `InvalidConfigError` if the configuration is not valid
+-   `MultipleConfigSourcesError` if multiple configuration sources are found
 
 ## getDefaults
 
@@ -32,7 +34,7 @@ Wrapper function to `configStore.findInDirectory` that will return the configura
 
 ```js
 const { getDefaults } = require('@eik/common-config-loader');
-const config: EikConfig = getDefaults("/path/to/my/app");
+const config: EikConfig = getDefaults('/path/to/my/app');
 ```
 
 ## localAssets
@@ -69,4 +71,3 @@ A number of routes would be mounted into your app.
 /pkg/my-app/1.0.0/esm.js.map
 /pkg/my-app/1.0.0/esm.css.map
 ```
-

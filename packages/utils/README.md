@@ -3,7 +3,7 @@
 Utilities used by other eik-lib packages.
 
 > **Note**
-this package is for internal eik-lib usage and the api may change at any time without notice.
+> this package is for internal eik-lib usage and the api may change at any time without notice.
 
 ## ReadFile
 
@@ -23,7 +23,7 @@ function removeLeadingSlash(val: string): string;
 ## Check the type of a stream
 
 These functions check the type of a stream:
-    
+
 ```js
 function isStream(stream: any): boolean;
 function isReadableStream(stream: any): boolean;

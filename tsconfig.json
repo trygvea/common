@@ -1,31 +1,28 @@
 {
-    "compilerOptions": {
-        "lib": [
-            "es2020",
-            "dom"
-        ],
-        "module": "es2020",
-        "target": "es2020",
-        "resolveJsonModule": true,
-        "checkJs": true,
-        "allowJs": true,
-        "moduleResolution": "node",
-        "skipLibCheck": true,
-        "noEmit": false,
-        "declaration": true,
-        "emitDeclarationOnly": true,
-        "outDir": "types"
-    },
-    "include": [
-        "lib",
-        "packages/validators/index.js",
-        "packages/helpers/src/type-slug.js",
-        "packages/helpers/src/config-store.js",
-        "packages/schemas/src/validation-error.js",
-        "packages/schemas/src/validate.js",
-        "packages/schemas/index.js",
-        "packages/schemas/src/assert.js",
-        "packages/shared/src/stream.js",
-        "packages/config-loader/src/custom-error.js"
-    ]
+  "compilerOptions": {
+    "lib": ["es2020", "dom"],
+    "module": "es2020",
+    "target": "es2020",
+    "resolveJsonModule": true,
+    "checkJs": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "types"
+  },
+  "include": [
+    "lib",
+    "packages/validators/index.js",
+    "packages/helpers/src/type-slug.js",
+    "packages/helpers/src/config-store.js",
+    "packages/schemas/src/validation-error.js",
+    "packages/schemas/src/validate.js",
+    "packages/schemas/index.js",
+    "packages/schemas/src/assert.js",
+    "packages/shared/src/stream.js",
+    "packages/config-loader/src/custom-error.js"
+  ]
 }
